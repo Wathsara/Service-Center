@@ -271,8 +271,8 @@
                                         <div class="col-md-12">
                                             <input type="text" id="name" name="name" class="input-text-name" placeholder="Name" required="required">
                                             <input type="text" id="email" name="email" class="input-text-email" placeholder="Email" required="required">
-                                            <input type="text" id="subject" name="subject" class="input-text-subject" placeholder="Subject" required="required">
-                                            <textarea class="textarea-question" id="message" name="message" placeholder="Message" required="required"></textarea>
+                                            <input type="text" id="subject" name="subject" class="input-text-subject" placeholder="Your Subject Here" required="required">
+                                            <textarea class="textarea-question" id="message" name="question" placeholder="Your Question Here" required="required"></textarea>
                                         </div><!-- /.col-md-12 -->
                                     </div><!-- /.row -->
 
@@ -280,7 +280,7 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="submit" value="Get a free repair quote" class="input-submit">
+                                            <input type="submit" value="Ask Question" class="input-submit">
                                         </div><!-- /.col-md-12 -->
                                     </div><!-- /.row -->
                                 </div>
@@ -304,301 +304,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="member-carousel">
-                            <article class="member">
-                                <div class="member-image">
-                                    <a href="#"><img src="images/member/t8.png" alt="t8"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="member-detail">
-                                    <h3 class="member-name">Bryan Hoffman</h3>
-                                    <p class="member-subtitle">Co Founder &amp; Mechanic</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
-
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-
-                            <article class="member entry object">
-                                <div class="member-image">
-                                    <a href="#"><img src="images/member/t6.png" alt="t8"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="member-detail">
-                                    <h3 class="member-name">JAMES WILLIAMS</h3>
-                                    <p class="member-subtitle">Co Founder &amp; Mechanic</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
-
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-
-                            <article class="member entry object">
-                                <div class="member-image">
-                                    <a href="#"><img src="images/member/t7.png" alt="t8"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="member-detail">
-                                    <h3 class="member-name">PATRICK JOHNSON</h3>
-                                    <p class="member-subtitle">Mechanic</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
-
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-
-                            <article class="member entry object">
-                                <div class="member-image">
-                                    <a href="#"><img src="images/member/t5.png" alt="t8"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="member-detail">
-                                    <h3 class="member-name">NUNO RODRIGUES</h3>
-                                    <p class="member-subtitle">Mechanic</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
-
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-
-                            <article class="member entry object">
-                                <div class="member-image">
-                                    <a href="#"><img src="images/member/t4.png" alt="t8"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="member-detail">
-                                    <h3 class="member-name">GHANSHYAM LODHI</h3>
-                                    <p class="member-subtitle">Mechanic</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
-
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-
-                            <article class="member entry object">
-                                <div class="member-image">
-                                    <a href="#"><img src="images/member/t3.png" alt="t8"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="member-detail">
-                                    <h3 class="member-name">SHEKHZADA NAEEM</h3>
-                                    <p class="member-subtitle">Mechanic</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
-
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-
-                            <article class="member entry object">
-                                <div class="member-image">
-                                    <a href="#"><img src="images/member/t2.png" alt="t8"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="member-detail">
-                                    <h3 class="member-name">JAMES ROZARIO</h3>
-                                    <p class="member-subtitle">Co Founder</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
-
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-
-                            <article class="member entry object">
+                            <!--one Team member card starts -->
+                            <div class="col-md-4">
+                                <article class="member entry object">
                                 <div class="member-image">
                                     <a href="#"><img src="images/member/t1.png" alt="t6"></a>
                                     <div class="member-links">
@@ -639,6 +347,8 @@
                                     </ul>
                                 </div>
                             </article>
+                            </div><!--one Team member card ends -->
+
                         </div><!-- /.main-content-wrap -->
                     </div><!-- /.col-md-12 -->
                 </div><!-- /.row -->

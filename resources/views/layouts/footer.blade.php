@@ -14,19 +14,16 @@
                                     <i class="fa fa-map-marker"></i>
                                     <strong>66 Nicholson St Buffalo New York US</strong> <br>
                                     <i class="fa fa-phone"></i>
-                                    <strong>Tel:</strong> 0123 456 789
+                                    <strong>Tel:</strong> 011 3 456 789
                                 </div>
                                 <div class="object ft-phone">
                                     <i class="fa fa-tablet"></i>
-                                    <strong>Mobile: </strong>01-888-666-999<br>
+                                    <strong>Mobile: </strong>0718 888 666<br>
                                     <i class="fa fa-envelope"></i>
                                     <strong>E-mail:</strong>
                                     <a href="#">support@linethemes.com</a>
                                 </div>
                             </div><!-- /.row -->
-                            <a href="#" class="button">
-                                <i class="fa fa-download"></i>Purchase Theme Now</a>
-
                         </div>
                     </div>
                 </div>
@@ -78,24 +75,16 @@
                 <div class="col-md-12">
                     <div class="copyright">
                         <div class="social-links">
-                            <a href="https://twitter.com/linethemes">
+                            <a href="https://twitter.com/">
                                 <i class="fa fa-twitter"></i>
                             </a>
-                            <a href="https://facebook.com/thelinethemes">
+                            <a href="https://facebook.com/">
                                 <i class="fa fa-facebook"></i>
                             </a>
-                            <a href="#">
-                                <i class="fa fa-behance"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-spotify"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-rss"></i>
-                            </a>
+
                         </div><!-- /.social-links -->
                         <div class="copyright-content">
-                            Copyright © 2016 AnyCar Theme Demo. Theme by <a href="#">Themesflat.</a>
+                            Copyright © 2018 Chathuranga Auto Care
                         </div><!-- /.copyright-content -->
                     </div>
                 </div>

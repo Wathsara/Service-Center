@@ -173,13 +173,6 @@
                                                     <a href="index-2.html">Home</a>
                                                     <ul class="submenu">
                                                         <li><a href="index-2.html">Homepage 01 (Header Style 1)</a></li>
-                                                        <li><a href="index-v2.html">Homepage 02 (Header Style 2)</a></li>
-                                                        <li><a href="index-v3.html">Homepage 03 (Header Style 3)</a></li>
-                                                        <li><a href="index-v4.html">Homepage 04 (Header Style 3)</a></li>
-                                                        <li><a href="index-v5.html">Homepage 05 (One Page)</a></li>
-                                                        <li><a href="index-v6.html">Homepage 06 (Shop Version)</a></li>
-                                                        <li><a href="index-v7.html">Homepage 07 (Blog / Magazine)</a></li>
-                                                        <li><a href="index-v8.html">Homepage 08 (Corporate)</a></li>
 
                                                     </ul><!-- /.submenu -->
                                                 </li>
@@ -233,67 +226,7 @@
                                                 <li><a href="contact.html">Contact</a></li>
                                             </ul><!-- /.menu -->
                                             <ul class="menu-extra">
-                                                <li class="shopping-cart">
-                                                    <a href="#">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <span class="shopping-cart-items-count">2</span>
-                                                    </a>
-                                                    <div class="submenu">
-                                                        <div class="widget_shopping_cart_content">
-                                                            <ul class="cart_list product_list_widget ">
-                                                                <li>
-                                                                    <a href="#" class="box-img">
-                                                                        <img src="images/shop/1-180x180.jpg" alt="images">
-                                                                    </a>
-                                                                    <div class="content-box">
-                                                                        <a href="#">Aztec Print Socks
-                                                                        </a>
-                                                                        <span class="quantity">
-                                                                            2 × £20.00
-                                                                        </span>
-                                                                    </div>
-                                                                    <a href="#" class="delete-product">
-                                                                        x
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" class="box-img">
-                                                                        <img src="images/shop/2-180x180.jpg" alt="images">
-                                                                    </a>
-                                                                    <div class="content-box">
-                                                                        <a href="#">Embroidered Belt
-                                                                        </a>
-                                                                        <span class="quantity">
-                                                                            2 × £35.00
-                                                                        </span>
-                                                                    </div>
-                                                                    <a href="#" class="delete-product">
-                                                                        x
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <p class="total">
-                                                                <strong>Subtotal:</strong>
-                                                                <span class="amount">£110.00</span>
-                                                            </p>
-                                                            <div class="wrap-buttons">
-                                                                <a class="button b1">View cart</a>
-                                                                <a class="button b2">Checkout</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li id ="s" class="search-box">
-                                                    <a href="#search" class="flat-search"><i class="fa fa-search"></i></a>
-                                                    <div class="submenu top-search">
-                                                        <div class="widget widget_search">
-                                                            <form class="search-form">
-                                                                <input type="search" class="search-field" placeholder="Search …">
-                                                                <input type="submit" class="search-submit">
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </li><!-- /.search-box -->
+
                                             </ul> <!-- /.menu-extra -->
                                         </nav><!-- /.mainnav -->
 
