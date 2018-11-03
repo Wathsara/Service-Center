@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Chathuranga Auto') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,60 +18,313 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/flexslider.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery.flex-images.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('responsive/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/revolution-slider.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shortcodes.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <div id="site-header">
+            <div id="headerbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="custom-info">
+                                <i class="fa fa-clock-o">
+                                </i>We'are Open: Monday - Saturday, 8:00 Am - 18:00 Pm
+                            </div><!-- /.custom-info -->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                            <nav id="site-navigator" class="top-navigator">
+                                <ul id="menu-top-menu" class="menu">
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                                    @guest
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            @if (Route::has('register'))
+                                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                            @endif
+                                                        </li>
+                                                    @else
+                                                        <li class="nav-item dropdown">
+                                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                                {{ Auth::user()->name }} <span class="caret"></span>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                                   onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                                                    {{ __('Logout') }}
+                                                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                    @csrf
+                                                                </form>
+                                                            </div>
+                                                        </li>
+                                                    @endguest
+
+                                </ul>
+                            </nav>
+                            <!-- /.top-navigator -->
+                        </div>
+                    </div>
+                </div><!-- /.container -->
+            </div><!-- /.headerbar -->
+
+            <!-- Header -->
+            <header id="header" class="header header-v2 clearfix">
+                <div class="site-brand clearfix">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="site-logo">
+                                    <div id="logo" class="logo">
+                                        <a href="index-2.html" rel="home">
+                                            <img src="images/logo2.png" alt="image">
+                                        </a>
+                                    </div><!-- /.logo -->
                                 </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                                <div class="header-widgets">
+                                    <div class="widget widget_text">
+                                        <div class="textwidget">
+                                            <div class="info-icon">
+                                                <i class="fa fa-phone yellow"></i>
+                                                <div class="content">Call Us Now<br><span>1-888-345-6789</span></div>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.widget-text -->
 
+                                    <div id="text-4" class="widget widget_text">
+                                        <div class="textwidget">
+                                            <div class="info-icon">
+                                                <i class="fa fa-map-marker yellow"></i>
+                                                <div class="content">66 Nicholson St<br><span>Buffalo New York US</span></div>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.widget-text -->
+
+                                    <div id="text-5" class="widget widget_text">
+                                        <div class="textwidget">
+                                            <a href="#" class="button yellow"><i class="fa fa-calendar"></i>&nbsp; &nbsp;Make an Appointment</a>
+                                        </div>
+                                    </div>
+                                </div><!-- /.header-widgets -->
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.site-brand -->
+                <div id="flat-site-navigator"  class="site-navigator">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="header-wrap clearfix">
+                                    <div class="nav-wrap clearfix">
+                                        <div class="btn-menu"></div><!-- //mobile menu button -->
+                                        <nav id="mainnav" class="mainnav">
+                                            <ul class="menu">
+                                                <li class="home">
+                                                    <a href="index-2.html" class="active">Home</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="index-2.html">Homepage 01 (Header Style 1)</a></li>
+                                                        <li><a href="index-v2.html">Homepage 02 (Header Style 2)</a></li>
+                                                        <li><a href="index-v3.html">Homepage 03 (Header Style 3)</a></li>
+                                                        <li><a href="index-v4.html">Homepage 04 (Header Style 3)</a></li>
+                                                        <li><a href="index-v5.html">Homepage 05 (One Page)</a></li>
+                                                        <li><a href="index-v6.html">Homepage 06 (Shop Version)</a></li>
+                                                        <li><a href="index-v7.html">Homepage 07 (Blog / Magazine)</a></li>
+                                                        <li><a href="index-v8.html">Homepage 08 (Corporate)</a></li>
+
+                                                    </ul><!-- /.submenu -->
+                                                </li>
+                                                <li><a href="about.html">About</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="about-team.html">Our Team</a></li>
+                                                        <li><a href="about-client.html">Clients</a></li>
+                                                        <li><a href="about-question.html">Questions &amp; Answers</a></li>
+                                                        <li><a href="about-reviews.html">Reviews</a></li>
+                                                    </ul><!-- /.submenu -->
+                                                </li>
+
+                                                <li><a href="services-all.html">Services</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="services-all.html">All Services</a></li>
+                                                        <li><a href="services-inspection.html">Vehicle Inspection</a></li>
+                                                        <li><a href="services-diagnostic.html">Diagnostic Services</a></li>
+                                                        <li><a href="services-upgrades.html">Performance Upgrades</a></li>
+                                                        <li><a href="services-pricing.html">Pricing</a></li>
+                                                        <li><a href="services-detail.html">Detail Services With Sidebar</a></li>
+                                                    </ul><!-- /.submenu -->
+                                                </li>
+
+                                                <li><a href="blog-default.html">Blog</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="blog-default.html">Blog Default</a></li>
+                                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                                        <li><a href="blog-medium.html">Blog Medium</a></li>
+                                                    </ul><!-- /.submenu -->
+                                                </li>
+                                                <li><a href="gallery-v1.html">Gallery</a>
+                                                    <ul class="submenu">
+
+                                                        <li><a href="gallery-v1.html">Gallery Style 01</a></li>
+                                                        <li><a href="gallery-v2.html">Gallery Style 02</a></li>
+                                                        <li><a href="gallery-v3.html">Gallery Style 03</a></li>
+                                                        <li class="sub-parent"><a href="#">Gallery Details</a>
+                                                            <ul class="submenu">
+                                                                <li><a href="gallery-list.html">Gallery Type List</a></li>
+                                                                <li><a href="gallery-slider.html">Gallery Type Slider</a></li>
+                                                                <li><a href="gallery-grid.html">Gallery Type Grid</a></li>
+                                                                <li><a href="gallery-content-left.html">Content Position Left</a></li>
+                                                                <li><a href="gallery-content-right.html">Content Position Right</a></li>
+                                                                <li><a href="gallery-content-fullwidth.html">Content Fullwidth</a></li>
+                                                                <li><a href="gallery-content-sticky.html">Sticky Content</a></li>
+                                                            </ul><!-- /.submenu -->
+                                                        </li>
+                                                    </ul><!-- /.submenu -->
+                                                </li>
+                                                <li><a href="shop.html">Shop </a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                            </ul><!-- /.menu -->
+                                            <ul class="menu-extra">
+                                                <li class="shopping-cart">
+                                                    <a href="#">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                        <span class="shopping-cart-items-count">2</span>
+                                                    </a>
+                                                    <div class="submenu">
+                                                        <div class="widget_shopping_cart_content">
+                                                            <ul class="cart_list product_list_widget ">
+                                                                <li>
+                                                                    <a href="#" class="box-img">
+                                                                        <img src="images/shop/1-180x180.jpg" alt="images">
+                                                                    </a>
+                                                                    <div class="content-box">
+                                                                        <a href="#">Aztec Print Socks
+                                                                        </a>
+                                                                        <span class="quantity">
+                                                                            2 × £20.00
+                                                                        </span>
+                                                                    </div>
+                                                                    <a href="#" class="delete-product">
+                                                                        x
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="box-img">
+                                                                        <img src="images/shop/2-180x180.jpg" alt="images">
+                                                                    </a>
+                                                                    <div class="content-box">
+                                                                        <a href="#">Embroidered Belt
+                                                                        </a>
+                                                                        <span class="quantity">
+                                                                            2 × £35.00
+                                                                        </span>
+                                                                    </div>
+                                                                    <a href="#" class="delete-product">
+                                                                        x
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <p class="total">
+                                                                <strong>Subtotal:</strong>
+                                                                <span class="amount">£110.00</span>
+                                                            </p>
+                                                            <div class="wrap-buttons">
+                                                                <a class="button b1">View cart</a>
+                                                                <a class="button b2">Checkout</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li id ="s" class="search-box">
+                                                    <a href="#search" class="flat-search"><i class="fa fa-search"></i></a>
+                                                    <div class="submenu top-search">
+                                                        <div class="widget widget_search">
+                                                            <form class="search-form">
+                                                                <input type="search" class="search-field" placeholder="Search …">
+                                                                <input type="submit" class="search-submit">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li><!-- /.search-box -->
+                                            </ul> <!-- /.menu-extra -->
+                                        </nav><!-- /.mainnav -->
+
+                                    </div><!-- /.nav-wrap -->
+                                </div><!-- /.header-wrap -->
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.site-navigator -->
+            </header><!-- /.header -->
+
+            <!-- Slider -->
+
+        </div>
+
+        {{--<nav class="navbar navbar-expand-md navbar-light navbar-laravel">--}}
+            {{--<div class="container">--}}
+                {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
+                    {{--{{ config('app.name', 'Laravel') }}--}}
+                {{--</a>--}}
+                {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
+                    {{--<span class="navbar-toggler-icon"></span>--}}
+                {{--</button>--}}
+
+                {{--<div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
+                    {{--<!-- Left Side Of Navbar -->--}}
+                    {{--<ul class="navbar-nav mr-auto">--}}
+
+                    {{--</ul>--}}
+
+                    {{--<!-- Right Side Of Navbar -->--}}
+                    {{--<ul class="navbar-nav ml-auto">--}}
+                        {{--<!-- Authentication Links -->--}}
+                        {{--@guest--}}
+                            {{--<li class="nav-item">--}}
+                                {{--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
+                            {{--</li>--}}
+                            {{--<li class="nav-item">--}}
+                                {{--@if (Route::has('register'))--}}
+                                    {{--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+                                {{--@endif--}}
+                            {{--</li>--}}
+                        {{--@else--}}
+                            {{--<li class="nav-item dropdown">--}}
+                                {{--<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+                                    {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
+                                {{--</a>--}}
+
+                                {{--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+                                    {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+                                       {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();">--}}
+                                        {{--{{ __('Logout') }}--}}
+                                    {{--</a>--}}
+
+                                    {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                                        {{--@csrf--}}
+                                    {{--</form>--}}
+                                {{--</div>--}}
+                            {{--</li>--}}
+                        {{--@endguest--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</nav>--}}
+<br>
         <main class="py-4">
             @yield('content')
         </main>
