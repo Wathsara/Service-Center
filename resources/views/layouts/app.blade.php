@@ -6,15 +6,46 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="author" content="themesflat.com">
     <title>{{ config('app.name', 'Chathuranga Auto') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/gmap3.min.js') }}" defer></script>
+    <script src="{{ asset('js/imagesloaded.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.cookie.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.countdown.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.easing.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.flexslider-min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.isotope.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.sticky.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.themepunch.revolution.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.themepunch.tools.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-countTo.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-ui.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-validate.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-waypoints.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
+    <script src="{{ asset('js/owl.carousel.js') }}" defer></script>
+    <script src="{{ asset('js/parallax.js') }}" defer></script>
+    <script src="{{ asset('js/slider.js') }}" defer></script>
+    <script src="{{ asset('js/switcher.js') }}" defer></script>
+    <script src="{{ asset('js/html5shiv.js') }}" defer></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
+
+
+    <!-- Icons -->
+    <link href="{{ asset('icon/apple-touch-icon-48-precomposed.png') }}" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="{{ asset('icon/apple-touch-icon-32-precomposed.png') }}" rel="apple-touch-icon-precomposed">
+    <link href="{{ asset('icon/favicon.png') }}" rel="shortcut icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="{{ asset('fonts/fontawesome-webfontd41d.eot') }}" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,9 +59,13 @@
     <link href="{{ asset('css/revolution-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/shortcodes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-face.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
+<body >
+
+<div id="app">
         <div id="site-header">
             <div id="headerbar">
                 <div class="container">
@@ -56,8 +91,8 @@
                                                             @endif
                                                         </li>
                                                     @else
-                                                        <li class="nav-item dropdown">
-                                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                        {{--<li class="nav-item dropdown">--}}
+                                                            <a style="color: white" id="navbarDropdown"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                                             </a>
 
@@ -72,7 +107,7 @@
                                                                     @csrf
                                                                 </form>
                                                             </div>
-                                                        </li>
+                                                        {{--</li>--}}
                                                     @endguest
 
                                 </ul>
@@ -92,7 +127,7 @@
                                 <div class="site-logo">
                                     <div id="logo" class="logo">
                                         <a href="index-2.html" rel="home">
-                                            <img src="images/logo2.png" alt="image">
+                                            <img src="{{ asset('images/logo2.png') }}" alt="image">
                                         </a>
                                     </div><!-- /.logo -->
                                 </div>
@@ -100,7 +135,7 @@
                                     <div class="widget widget_text">
                                         <div class="textwidget">
                                             <div class="info-icon">
-                                                <i class="fa fa-phone yellow"></i>
+                                                <i class="fa fa-phone"></i>
                                                 <div class="content">Call Us Now<br><span>1-888-345-6789</span></div>
                                             </div>
                                         </div>
@@ -135,7 +170,7 @@
                                         <nav id="mainnav" class="mainnav">
                                             <ul class="menu">
                                                 <li class="home">
-                                                    <a href="index-2.html" class="active">Home</a>
+                                                    <a href="index-2.html">Home</a>
                                                     <ul class="submenu">
                                                         <li><a href="index-2.html">Homepage 01 (Header Style 1)</a></li>
                                                         <li><a href="index-v2.html">Homepage 02 (Header Style 2)</a></li>
@@ -325,9 +360,10 @@
             {{--</div>--}}
         {{--</nav>--}}
 <br>
-        <main class="py-4">
-            @yield('content')
-        </main>
+
     </div>
+<main class="py-4">
+    @yield('content')
+</main>
 </body>
 </html>
