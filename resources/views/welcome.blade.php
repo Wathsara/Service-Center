@@ -3,6 +3,15 @@
 @section('content')
     <div id="site-wrapper">
         <div id="site-header">
+            @if(Session::has('que'))
+                <div class="alert alert-success" role="alert" style="margin-left: 20%;margin-right: 20%">
+                    <strong>Thank you for Contacting Us.Our team Will contact You Soon....</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {{ Session::forget('que') }}
+        @endif
         <!-- Slider -->
             <div class="tp-banner-container">
             <div class="tp-banner" >
@@ -265,12 +274,13 @@
                         </div><!-- /.images-single -->
 
                         <div class="object">
-                            <form  id="contactform" class="flat-contact-form style1" method="post" action="http://themesflat.com/html/anycar/contact/contact-process.php">
+                            <form  id="contactform" class="flat-contact-form style1" method="post" action="{{route('question')}}">
                                 <div class="quick-appoinment">
                                     <div class="row">
                                         <div class="col-md-12">
+                                            {{csrf_field()}}
                                             <input type="text" id="name" name="name" class="input-text-name" placeholder="Name" required="required">
-                                            <input type="text" id="email" name="email" class="input-text-email" placeholder="Email" required="required">
+                                            <input type="email" id="email" name="email" class="input-text-email" placeholder="Email" required="required">
                                             <input type="text" id="subject" name="subject" class="input-text-subject" placeholder="Your Subject Here" required="required">
                                             <textarea class="textarea-question" id="message" name="question" placeholder="Your Question Here" required="required"></textarea>
                                         </div><!-- /.col-md-12 -->

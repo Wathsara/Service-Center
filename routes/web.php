@@ -19,3 +19,9 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
+
+// Route to ask the questions
+Route::post('question',[
+    'uses' => 'QuestionController@question',
+    'as' => 'question'
+]);
