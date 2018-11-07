@@ -40,6 +40,39 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="Contact Number" class="col-md-4 col-form-label text-md-right">{{ __('Contact No') }}</label>
+
+                            <div class="col-md-6">
+                                <input name="cno" maxlength="10" minlength="10" type="text" onkeypress="return isNumberKey(event)" value="{{ old('cno') }}" required/>
+                                @if ($errors->has('cno'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>Enter valid phone number with 10 digits</strong>
+                                    </span>
+                                @endif
+                                <script>
+                                    function isNumberKey(evt){
+                                        var charCode = (evt.which) ? evt.which : event.keyCode
+                                        if (charCode > 31 && (charCode < 48 || charCode > 57))
+                                            return false;
+                                        return true;
+                                    }
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+
+                            <div class="col-md-2">
+                                <input type="radio" name="gender" value="male" checked> Male
+
+                            </div>
+                            <div class="col-md-3">
+                                <input type="radio" name="gender" value="female"> Female
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
