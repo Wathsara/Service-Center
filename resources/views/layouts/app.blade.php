@@ -152,7 +152,7 @@
 
                                     <div id="text-5" class="widget widget_text">
                                         <div class="textwidget">
-                                            <a href="#" class="button yellow"><i class="fa fa-calendar"></i>&nbsp; &nbsp;Make an Appointment</a>
+                                            <a href="{{url('/home')}}" class="button yellow"><i class="fa fa-calendar"></i>&nbsp; &nbsp;Make an Appointment</a>
                                         </div>
                                     </div>
                                 </div><!-- /.header-widgets -->
