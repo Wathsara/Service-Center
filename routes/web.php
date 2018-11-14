@@ -27,8 +27,14 @@ Route::post('question',[
 ]);
 
 //admin dashboard view
-
 Route::get('dashboard',[
     'uses' => 'AdminController@dashboard',
     'as' => 'dashboard'
+]);
+
+
+//admin Service view
+Route::get('service',[
+    'uses' => 'AdminController@service',
+    'as' => 'service'
 ]);

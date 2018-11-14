@@ -97,71 +97,21 @@
             </div>
             <ul class="nav">
 
-                <li class="nav-item active ">
-                    <a class="nav-link" href="dashboard.html">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{route('dashboard')}}">
                         <i class="material-icons">dashboard</i>
                         <p> Dashboard </p>
                     </a>
                 </li>
-
                 <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
-                        <i class="material-icons">image</i>
-                        <p> Pages
-                            <b class="caret"></b>
-                        </p>
+                    <a class="nav-link" href="{{route('service')}}">
+                        <i class="material-icons">service</i>
+                        <p> Services</p>
                     </a>
-
-                    <div class="collapse" id="pagesExamples">
-                        <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/pricing.html">
-                                    <span class="sidebar-mini"> P </span>
-                                    <span class="sidebar-normal"> Pricing </span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/rtl.html">
-                                    <span class="sidebar-mini"> RS </span>
-                                    <span class="sidebar-normal"> RTL Support </span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/timeline.html">
-                                    <span class="sidebar-mini"> T </span>
-                                    <span class="sidebar-normal"> Timeline </span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/login.html">
-                                    <span class="sidebar-mini"> LP </span>
-                                    <span class="sidebar-normal"> Login Page </span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/register.html">
-                                    <span class="sidebar-mini"> RP </span>
-                                    <span class="sidebar-normal"> Register Page </span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/lock.html">
-                                    <span class="sidebar-mini"> LSP </span>
-                                    <span class="sidebar-normal"> Lock Screen Page </span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/user.html">
-                                    <span class="sidebar-mini"> UP </span>
-                                    <span class="sidebar-normal"> User Profile </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
+                    <a class="nav-link" data-toggle="collapse" href="">
                         <i class="material-icons">apps</i>
                         <p> Components
                             <b class="caret"></b>
