@@ -25,6 +25,18 @@
                     </div>
                     {{ Session::forget('serviceadd') }}
                 @endif
+
+                @if(Session::has('serviceupdate'))
+                    <div class="alert alert-success" role="alert">
+                        <strong>Service Successfully Updated</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{ Session::forget('serviceupdate') }}
+                @endif
+
+
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Button trigger modal -->

@@ -25,4 +25,16 @@ class ServiceController extends Controller
         Session::put('serviceadd', "Service Added Succesful");
         return back();
     }
+
+    public function updateService(Request $request){
+        DB::table('services')
+            ->where('id', $request->sid)
+            ->update([
+                'serviceName' => $request->serviceName ,
+                'serviceDiscription'=>$request->serviceDiscription,
+                'serviceFee'=>$request->serviceFee
+            ]);
+        Session::put('serviceupdate', "Service update Succesful");
+        return back();
+    }
 }
