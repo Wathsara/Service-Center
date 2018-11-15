@@ -15,14 +15,66 @@
 
                 <h3>Services</h3>
                 <br>
+
+                @if(Session::has('serviceadd'))
+                    <div class="alert alert-success" role="alert">
+                        <strong>Service Successfully Added</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{ Session::forget('serviceadd') }}
+                @endif
                 <div class="row">
                     <div class="col-md-12">
+                        <!-- Button trigger modal -->
+                        <button style="float: right" type="button" class="btn btn-success" data-toggle="modal" data-target="#addservice">
+                            Add New Service
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="addservice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="exampleModalLabel">New Service</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{route('addService')}}" method="post">
+                                            {{csrf_field()}}
+                                            <div class="form-group">
+                                                <label for="serviceName"style="font-size: 18px;">Service name</label><br>
+                                                <input type="text" class="form-control" id="serviceName" name="serviceName" placeholder="Ex: Full Service" required>
+                                            </div><br>
+                                            <div class="form-group">
+                                                <label for="serviceDiscription" style="font-size: 18px;">Service Discription</label><br>
+                                                <textarea type="text" class="form-control" id="serviceDiscription" name="serviceDiscription" placeholder="Short discription about the Service" required></textarea>
+                                            </div><br>
+
+                                            <div class="form-group">
+                                                <label for="serviceFee" style="font-size: 18px;">Service Fee <b>LKR</b></label><br>
+                                                <input type="number" class="form-control" id="serviceFee" name="serviceFee" placeholder="2500.00" required>
+                                            </div><br>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                         <div class="card">
                             <div class="card-header card-header-rose card-header-icon">
                                 <div class="card-icon">
                                     <i class="material-icons">assignment</i>
                                 </div>
-                                <h4 class="card-title">Simple Table</h4>
+                                <h4 class="card-title">Service Details</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -30,33 +82,67 @@
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
-                                            <th>Name</th>
-                                            <th>Job Position</th>
-                                            <th>Since</th>
-                                            <th class="text-right">Salary</th>
+                                            <th>Service Name</th>
+                                            <th>Service Discription</th>
+                                            <th>Service Fee</th>
+                                            <th class="text-right">Created on</th>
                                             <th class="text-right">Actions</th>
                                         </tr>
 
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td class="text-center">3</td>
-                                            <td>Alex Mike</td>
-                                            <td>Design</td>
-                                            <td>2010</td>
-                                            <td class="text-right">&euro; 92,144</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" class="btn btn-info btn-link">
-                                                    <i class="material-icons">person</i>
-                                                </button>
-                                                <button type="button" rel="tooltip" class="btn btn-success btn-link">
-                                                    <i class="material-icons">edit</i>
-                                                </button>
-                                                <button type="button" rel="tooltip" class="btn btn-danger btn-link">
-                                                    <i class="material-icons">close</i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                        @foreach($ser as $service)
+                                            <tr>
+                                                <td class="text-center">{{$service->id}}</td>
+                                                <td>{{$service->serviceName}}</td>
+                                                <td>{{$service->serviceDiscription}} </td>
+                                                <td>LKR {{$service->serviceFee}}</td>
+                                                <td class="text-right">{{$service->created_at}}</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" class="btn btn-success btn-link" data-toggle="modal" data-target="#updateService{{$service->id}}">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <div class="modal fade" id="updateService{{$service->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel">Update Service</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('updateService')}}" method="post">
+                                                                        {{csrf_field()}}
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Service name</label><br>
+                                                                            <input type="text" class="form-control" id="serviceName" name="serviceName" placeholder="Ex: Full Service" value="{{$service->serviceName}}" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Discription</label><br>
+                                                                            <textarea type="text" class="form-control" id="serviceDiscription" name="serviceDiscription" placeholder="Short discription about the Service"  required>{{$service->serviceDiscription}}</textarea>
+                                                                        </div><br>
+                                                                        <input type="hidden" value="{{$service->id}}" name="sid">
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Service Fee <b>LKR</b></label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="serviceFee" name="serviceFee" placeholder="2500.00" value="{{$service->serviceFee}}" required>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-link">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
                                         </tbody>
                                     </table>

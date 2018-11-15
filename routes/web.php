@@ -35,6 +35,18 @@ Route::get('dashboard',[
 
 //admin Service view
 Route::get('service',[
-    'uses' => 'AdminController@service',
+    'uses' => 'ServiceController@service',
     'as' => 'service'
+]);
+
+//add service route
+Route::post('addService',[
+    'uses' => 'ServiceController@addService',
+    'as' => 'addService'
+]);
+
+//update service route
+Route::post('updateService',[
+    'uses' => 'ServiceController@updateService',
+    'as' => 'updateService'
 ]);

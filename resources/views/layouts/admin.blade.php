@@ -105,7 +105,7 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('service')}}">
-                        <i class="material-icons">service</i>
+                        <i class="material-icons">content_paste</i>
                         <p> Services</p>
                     </a>
                 </li>

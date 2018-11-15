@@ -10,7 +10,5 @@ class AdminController extends Controller
         return view('admin/adminHome');
     }
 
-    public function service(){
-        return view('admin/service');
-    }
+
 }
