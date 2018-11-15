@@ -50,3 +50,10 @@ Route::post('updateService',[
     'uses' => 'ServiceController@updateService',
     'as' => 'updateService'
 ]);
+
+//delete service route
+Route::post('deleteService',[
+    'uses' => 'ServiceController@deleteService',
+    'as' => 'deleteService'
+]);
+

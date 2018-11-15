@@ -30,71 +30,24 @@
     <section class="services-pricing">
         <div class="container">
             <div class="row">
-                <div class="title-section">
-                    <h2 class="title">SPECIALS</h2>
-                    <p class="desc-title">Get the best discounts now</p>
-                </div>
-                <div class="three-columns">
-                    <div class="object">
-                        <div class="flat-price">
-                            <div class="column-container">
-                                <div class="plan">Vehicle Inspection</div>
-                                <div class="price">$300</div>
-                                <div class="description">Services include</div>
-                                <ul class="features">
-                                    <li class="spacer"></li>
-                                    <li>Air Filters</li><li>Fuel Filters</li>
-                                    <li>Alignment Check</li>
-                                    <li>Front End Alignment</li>
-                                    <li>Air Conditioning Service</li>
-                                </ul>
-                                <div class="cta">
-                                    <a class="button" href="#">Contact Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="object">
+                <div class="col-md-12">
+                  @foreach($services as $service)
+                    <div class="col-md-4">
                         <div class="flat-price">
                             <div class="column-container">
-                                <div class="plan">DIAGNOSTIC SERVICES</div>
-                                <div class="price highlight">$500</div>
-                                <div class="description">Services include</div>
-                                <ul class="features">
-                                    <li class="spacer"></li>
-                                    <li>Air Filters</li><li>Fuel Filters</li>
-                                    <li>Alignment Check</li>
-                                    <li>Front End Alignment</li>
-                                    <li>Air Conditioning Service</li>
-                                </ul>
-                                <div class="cta highlight">
-                                    <a class="button" href="#">Contact Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="object">
-                        <div class="flat-price">
-                            <div class="column-container">
-                                <div class="plan">PERFORMANCE UPGRADES</div>
-                                <div class="price">$800</div>
-                                <div class="description">Services include</div>
-                                <ul class="features">
-                                    <li class="spacer"></li>
-                                    <li>Air Filters</li><li>Fuel Filters</li>
-                                    <li>Alignment Check</li>
-                                    <li>Front End Alignment</li>
-                                    <li>Air Conditioning Service</li>
-                                </ul>
+                                <div class="plan">{{$service->serviceName}}</div>
+                                <div class="price">LKR <br>{{$service->serviceFee}}</div>
+                                <div class="description" style="height: 20vh;overflow-y: scroll">{{$service->serviceDiscription}}</div>
                                 <div class="cta">
-                                    <a class="button" href="#">Contact Now</a>
+                                    <a class="button" href="#">Reserve Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> <!-- /.three-columns -->
+                  @endforeach
+
+                </div> <!-- /.col-md-12 -->
 
             </div><!-- /.row -->
         </div><!-- /.container -->

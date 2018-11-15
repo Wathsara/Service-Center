@@ -36,6 +36,16 @@
                     {{ Session::forget('serviceupdate') }}
                 @endif
 
+                @if(Session::has('servicedel'))
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Service Successfully Deleted</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{ Session::forget('servicedel') }}
+                @endif
+
 
                 <div class="row">
                     <div class="col-md-12">
@@ -149,9 +159,31 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-link">
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-link" data-toggle="modal" data-target="#delService">
                                                         <i class="material-icons">close</i>
                                                     </button>
+                                                    <div class="modal fade bd-example-modal-sm" tabindex="-1" id="delService" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-sm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title" id="exampleModalLabel">Are you Sure You want to Delete this Service?</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('deleteService')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="{{$service->id}}" name="sid">
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-warning">Delete</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -37,4 +37,11 @@ class ServiceController extends Controller
         Session::put('serviceupdate', "Service update Succesful");
         return back();
     }
+
+    public function deleteService(Request $request){
+        DB::table('services')
+            ->where('id', $request->sid)->delete();
+        Session::put('servicedel', "Service Deleted Succesful");
+        return back();
+    }
 }
