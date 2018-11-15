@@ -81,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-chart">
@@ -130,6 +131,104 @@
                             <div class="card-footer">
                                 <div class="stats">
                                     <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h4 class="card-title">Question Center</h4>
+                            </div>
+                            <div class="card-body ">
+                                <ul class="nav nav-pills nav-pills-warning" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
+                                            Recent Questions
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
+                                            Answered Questions
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
+                                            Options
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content tab-space">
+                                    <div class="tab-pane active" id="link1">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header card-header-rose card-header-icon">
+                                                        <div class="card-icon">
+                                                            <i class="material-icons">assignment</i>
+                                                        </div>
+                                                        <h4 class="card-title">Simple Table</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>E-mail</th>
+                                                                    <th>Subject</th>
+                                                                    <th>Question</th>
+                                                                    <th>Asked at</th>
+                                                                    <th class="text-right">Actions</th>
+                                                                </tr>
+
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($question as $que)
+                                                                    <tr>
+                                                                        <td class="text-center">{{$que->name}}</td>
+                                                                        <td>{{$que->email}}</td>
+                                                                        <td>{{$que->subject}}</td>
+                                                                        <td>{{$que->question}}</td>
+                                                                        <td>{{$que->created_at}}</td>
+                                                                        <td class="td-actions text-right" style="float: right">
+
+                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-info btn-link">
+                                                                                <i class="material-icons">person</i>
+                                                                            </button>
+                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-success btn-link">
+                                                                                <i class="material-icons">edit</i>
+                                                                            </button>
+                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-danger btn-link">
+                                                                                <i class="material-icons">close</i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="tab-pane" id="link2">
+                                        Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                                        <br />
+                                        <br />Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                                    </div>
+                                    <div class="tab-pane" id="link3">
+                                        Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
+                                        <br />
+                                        <br />Dynamically innovate resource-leveling customer service for state of the art customer service.
+                                    </div>
                                 </div>
                             </div>
                         </div>
