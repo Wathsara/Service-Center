@@ -40,7 +40,17 @@
                                 <div class="price">LKR <br>{{$service->serviceFee}}</div>
                                 <div class="description" style="height: 20vh;overflow-y: scroll">{{$service->serviceDiscription}}</div>
                                 <div class="cta">
-                                    <a class="button" href="#">Reserve Now</a>
+                                    <a class="button" data-toggle="collapse" href="#rese{{$service->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">Reserve Now</a>
+                                    <div class="collapse" id="rese{{$service->id}}" style="margin-top: 5px;">
+                                        <div class="card card-body">
+                                             <form method="post" action="{{route('checkAvailability')}}">
+                                                 {{csrf_field()}}
+                                                 <input type="date" min="<?php $y= date("Y");$m= date("m");$d= date("d");$e= "$y-$m-$d";echo $e;?>" name="checkDate">
+                                                 <input type="submit" value="Check Availability" name="submit"class="btn btn-primary btn-xs" style="margin-top: 10px;">
+
+                                             </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

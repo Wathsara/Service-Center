@@ -57,3 +57,8 @@ Route::post('deleteService',[
     'as' => 'deleteService'
 ]);
 
+//route to check the available time slots of the given date
+Route::post('checkAvailability',[
+    'uses' => 'BookingController@checkAvailability',
+    'as' => 'checkAvailability'
+]);
