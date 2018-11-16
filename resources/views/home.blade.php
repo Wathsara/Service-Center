@@ -5,16 +5,17 @@
     <div class="flat-row page-title  parallax parallax1">
         <div class="container">
             <div class="row">
+                @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Reserved Successfully</strong>
+                    </div>
+                    {{ Session::forget('success') }}
+                @endif
                 <div class="col-md-12">
-                    @if(Session::has('success'))
-                        <div class="alert alert-success" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <strong>Reserved Successfully</strong>
-                        </div>
-                        {{ Session::forget('success') }}
-                    @endif
+
                     <div class="page-title-heading">
                         <h1 class="title">PRICING</h1>
                         <p class="subtitle">Here you can see what we have to offer and what you’ll pay for that.</p>

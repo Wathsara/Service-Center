@@ -157,7 +157,7 @@
                                             <td>
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="35" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
-                                                <div class="h3-1-center" style="color:#1e1e1e; font-family:Georgia, serif; min-width:auto !important; font-size:20px; line-height:26px; text-align:center;font-size: 14px"><b>Your Question:</b><br>Your order has shipped! To track your order or make any changes please click the button below.</div>
+                                                <div class="h3-1-center" style="color:#1e1e1e; font-family:Georgia, serif; min-width:auto !important; font-size:20px; line-height:26px; text-align:center;font-size: 14px"><b>Your Question:</b><br>{{$question}}</div>
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
 
@@ -174,7 +174,7 @@
                                                                                 </td>
                                                                                 <td bgcolor="#d2973b">
                                                                                     <div class="text-btn" style="color:#ffffff; font-family:Arial, sans-serif; min-width:auto !important; font-size:16px; line-height:20px; text-align:center">
-                                                                                        <label target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;font-size: 14px;" disabled><span class="link-white" style="color:#ffffff; text-decoration:none"><b style="text-align: center">Answer</b><br>Yes sir you will be able to find out all those things in the seminar room as fooloowas and in the meannnng of the time as you wish</span></label>
+                                                                                        <label target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;font-size: 14px;" disabled><span class="link-white" style="color:#ffffff; text-decoration:none"><b style="text-align: center">Answer</b><br>{{$answer}}</span></label>
                                                                                     </div>
                                                                                 </td>
                                                                                 <td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="15"></td>

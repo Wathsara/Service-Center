@@ -19,6 +19,8 @@ class CreateQuestionsTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->text('question');
+            $table->boolean('status')->default(0);
+            $table->text('answer')->nullable();
             $table->timestamps();
         });
     }

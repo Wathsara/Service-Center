@@ -5,12 +5,31 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+
                     <div class="col-md-12">
                         <div class="card ">
 
                         </div>
                     </div>
                 </div>
+                @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Answered Successfully</strong>
+                    </div>
+                    {{ Session::forget('success') }}
+                @endif
+                @if(Session::has('questiondelete'))
+                    <div class="alert alert-warning" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Question Deleted Successfully</strong>
+                    </div>
+                {{ Session::forget('questiondelete') }}
+            @endif
                 <!-- <button type="button" class="btn btn-round btn-default dropdown-toggle btn-link" data-toggle="dropdown">
 7 days
 </button> -->
@@ -155,11 +174,7 @@
                                             Answered Questions
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
-                                            Options
-                                        </a>
-                                    </li>
+
                                 </ul>
                                 <div class="tab-content tab-space">
                                     <div class="tab-pane active" id="link1">
@@ -170,7 +185,7 @@
                                                         <div class="card-icon">
                                                             <i class="material-icons">assignment</i>
                                                         </div>
-                                                        <h4 class="card-title">Simple Table</h4>
+                                                        <h4 class="card-title">Question Table</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="table-responsive">
@@ -196,15 +211,68 @@
                                                                         <td>{{$que->created_at}}</td>
                                                                         <td class="td-actions text-right" style="float: right">
 
-                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-info btn-link">
-                                                                                <i class="material-icons">person</i>
-                                                                            </button>
-                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-success btn-link">
+                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-success btn-link" data-toggle="modal" data-target="#que{{$que->id}}">
                                                                                 <i class="material-icons">edit</i>
                                                                             </button>
-                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-danger btn-link">
+                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-danger btn-link" data-toggle="modal" data-target="#delque{{$que->id}}">
                                                                                 <i class="material-icons">close</i>
                                                                             </button>
+
+                                                                            <div class="modal fade" id="que{{$que->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                                <div class="modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h3 class="modal-title" id="exampleModalLabel">Answer for the Question</h3>
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                                <span aria-hidden="true">&times;</span>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <form action="{{route('answer')}}" method="post">
+                                                                                                {{csrf_field()}}
+                                                                                                <p style="text-align: center"><b>Question</b><br>{{$que->question}}</p>
+                                                                                                <input type="hidden" name="qid" value="{{$que->id}}">
+                                                                                                <br>
+
+                                                                                                <div class="form-group">
+                                                                                                    <label for="answer" style="font-size: 18px;">Answer</label><br>
+                                                                                                    <textarea type="text" class="form-control" id="answer" name="answer" placeholder="Answer for the Above question" required></textarea>
+                                                                                                </div><br>
+
+                                                                                                <div class="modal-footer">
+                                                                                                    <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                                                    <button type="submit" class="btn btn-success">Submit Answer</button>
+                                                                                                </div>
+                                                                                            </form>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="modal fade bd-example-modal-sm" tabindex="-1" id="delque{{$que->id}}" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                                                <div class="modal-dialog modal-sm">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h4 class="modal-title" id="exampleModalLabel">Are you Sure You want to Delete this Question?</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <form action="{{route('delque')}}" method="post">
+                                                                                                {{csrf_field()}}
+
+                                                                                                <input type="hidden" value="{{$que->id}}" name="qid">
+
+                                                                                                <div class="modal-footer">
+                                                                                                    <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                                                    <button type="submit" class="btn btn-warning">Delete</button>
+                                                                                                </div>
+                                                                                            </form>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
@@ -220,73 +288,85 @@
 
                                     </div>
                                     <div class="tab-pane" id="link2">
-                                        Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
-                                        <br />
-                                        <br />Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header card-header-rose card-header-icon">
+                                                        <div class="card-icon">
+                                                            <i class="material-icons">assignment</i>
+                                                        </div>
+                                                        <h4 class="card-title">Question & Answer Table</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>E-mail</th>
+                                                                    <th>Subject</th>
+                                                                    <th>Question</th>
+                                                                    <th>Answer</th>
+                                                                    <th class="text-right">Actions</th>
+                                                                </tr>
+
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($answer as $ans)
+                                                                    <tr>
+                                                                        <td class="text-center">{{$ans->name}}</td>
+                                                                        <td>{{$ans->email}}</td>
+                                                                        <td>{{$ans->subject}}</td>
+                                                                        <td>{{$ans->question}}</td>
+                                                                        <td>{{$ans->answer}}</td>
+                                                                        <td class="td-actions text-right" style="float: right">
+
+                                                                            <button style="margin-top: 15px;" type="button" rel="tooltip" class="btn btn-danger btn-link" data-toggle="modal" data-target="#delans{{$ans->id}}">
+                                                                                <i class="material-icons">close</i>
+                                                                            </button>
+                                                                            <div class="modal fade bd-example-modal-sm" tabindex="-1" id="delans{{$ans->id}}" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                                                <div class="modal-dialog modal-sm">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h4 class="modal-title" id="exampleModalLabel">Are you Sure You want to Delete this Question?</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <form action="{{route('delque')}}" method="post">
+                                                                                                {{csrf_field()}}
+
+                                                                                                <input type="hidden" value="{{$ans->id}}" name="qid">
+
+                                                                                                <div class="modal-footer">
+                                                                                                    <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                                                    <button type="submit" class="btn btn-warning">Delete</button>
+                                                                                                </div>
+                                                                                            </form>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="tab-pane" id="link3">
-                                        Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
-                                        <br />
-                                        <br />Dynamically innovate resource-leveling customer service for state of the art customer service.
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <h3>Services</h3>
-                <br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header card-header-rose card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">assignment</i>
-                                </div>
-                                <h4 class="card-title">Simple Table</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th class="text-center">#</th>
-                                            <th>Name</th>
-                                            <th>Job Position</th>
-                                            <th>Since</th>
-                                            <th class="text-right">Salary</th>
-                                            <th class="text-right">Actions</th>
-                                        </tr>
-
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td class="text-center">3</td>
-                                            <td>Alex Mike</td>
-                                            <td>Design</td>
-                                            <td>2010</td>
-                                            <td class="text-right">&euro; 92,144</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" class="btn btn-info btn-link">
-                                                    <i class="material-icons">person</i>
-                                                </button>
-                                                <button type="button" rel="tooltip" class="btn btn-success btn-link">
-                                                    <i class="material-icons">edit</i>
-                                                </button>
-                                                <button type="button" rel="tooltip" class="btn btn-danger btn-link">
-                                                    <i class="material-icons">close</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
 

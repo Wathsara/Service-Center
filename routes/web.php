@@ -31,6 +31,19 @@ Route::post('question',[
     'as' => 'question'
 ]);
 
+//route to answer the question
+Route::post('answer',[
+    'uses' => 'QuestionController@answer',
+    'as' => 'answer'
+]);
+
+//delete the questions
+Route::post('delque',[
+    'uses' => 'QuestionController@delque',
+    'as' => 'delque'
+]);
+
+
 //admin dashboard view
 Route::get('dashboard',[
     'uses' => 'AdminController@dashboard',
