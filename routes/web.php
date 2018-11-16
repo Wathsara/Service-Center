@@ -18,7 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->middleware('verified');
+//Route::get('/home', 'HomeController@index')->middleware('verified');
+
+Route::get('home',[
+    'uses' => 'HomeController@index',
+    'as' => 'home'
+])->middleware('verified');
 
 // Route to ask the questions
 Route::post('question',[
@@ -68,3 +73,15 @@ Route::post('reserve',[
     'uses' => 'BookingController@reserve',
     'as' => 'reserve'
 ]);
+
+// route to handle report payments
+Route::get('payment', [
+    'uses' => 'PaymentController@payWithpaypal',
+    'as' => 'payment'
+]);
+// route to get the status of the transaction
+Route::get('paymentStatus', [
+    'uses' => 'PaymentController@getStatusReport',
+    'as' => 'paymentStatus'
+]);
+

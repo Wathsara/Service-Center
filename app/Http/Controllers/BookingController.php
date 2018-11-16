@@ -30,6 +30,11 @@ class BookingController extends Controller
         $book->time=$request->time;
         $book->paymentStatus=0;
         $book->save();
-        return back();
+
+        $service=DB::table('services')->where('id',$request->sid)->first();
+        $booking = DB::table('bookings')->where('userId',Auth::user()->id)->orderBy('bookingId','desc')->first();
+        $price=($service->serviceFee)/170;
+        return redirect()->route('payment', ['bid'=>$booking->bookingId, 'amount'=>$price]);
+
     }
 }
