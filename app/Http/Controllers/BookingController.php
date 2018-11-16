@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
@@ -18,5 +20,16 @@ class BookingController extends Controller
 
 
         return view('booking/book',compact('service','timesTaken','date'));
+    }
+
+    public function reserve(Request $request){
+        $book = new Booking();
+        $book->serviceId=$request->sid;
+        $book->userId=Auth::user()->id;
+        $book->date=$request->checkDate;
+        $book->time=$request->time;
+        $book->paymentStatus=0;
+        $book->save();
+        return back();
     }
 }

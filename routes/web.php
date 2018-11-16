@@ -62,3 +62,9 @@ Route::get('checkAvailability',[
     'uses' => 'BookingController@checkAvailability',
     'as' => 'checkAvailability'
 ]);
+
+//route to reserve the day and time
+Route::post('reserve',[
+    'uses' => 'BookingController@reserve',
+    'as' => 'reserve'
+]);

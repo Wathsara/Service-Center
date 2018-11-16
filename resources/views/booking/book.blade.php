@@ -41,8 +41,59 @@
                                             <div class="description">{{$service->serviceDiscription}}</div>
                                             <div class="price">LKR {{$service->serviceFee}} <br>{{$date}}</div>
                                             <div class="cta">
-                                                <form method="get" action="">
+                                                <form method="post" action="{{route('reserve')}}">
                                                     {{csrf_field()}}
+                                                    <select name="time" style="width: 150px;margin-left: 10px;" required>
+                                                        <option disabled selected> -- select a Time Slot -- </option>
+                                                        @if(in_array("8.00",$timesTaken))
+                                                            <option value="8.00" disabled="">8.00</option>
+                                                        @else
+                                                            <option value="8.00" >8.00</option>
+                                                        @endif
+
+                                                        @if(in_array("9.00",$timesTaken))
+                                                            <option value="9.00" disabled>9.00</option>
+                                                        @else
+                                                            <option value="9.00">9.00</option>
+                                                        @endif
+
+                                                        @if(in_array("10.00",$timesTaken))
+                                                            <option value="10.00" disabled>10.00</option>
+                                                        @else
+                                                            <option value="10.00">10.00</option>
+                                                        @endif
+
+                                                        @if(in_array("11.00",$timesTaken))
+                                                            <option value="11.00" disabled>11.00</option>
+                                                        @else
+                                                            <option value="11.00">11.00</option>
+                                                        @endif
+
+                                                        @if(in_array("13.00",$timesTaken))
+                                                           <option value="13.00" disabled>13.00</option>
+                                                        @else
+                                                            <option value="13.00">13.00</option>
+                                                        @endif
+
+                                                        @if(in_array("14.00",$timesTaken))
+                                                            <option value="14.00" disabled>14.00</option>
+                                                        @else
+                                                            <option value="14.00">14.00</option>
+                                                        @endif
+
+                                                        @if(in_array("15.00",$timesTaken))
+                                                            <option value="15.00" disabled>15.00</option>
+                                                        @else
+                                                            <option value="15.00">15.00</option>
+                                                        @endif
+
+                                                        @if(in_array("16.00",$timesTaken))
+                                                            <option value="16.00" disabled>16.00</option>
+                                                        @else
+                                                            <option value="16.00">16.00</option>
+                                                        @endif
+                                                    </select>
+                                                    <input type="hidden" value="{{$service->id}}" name="sid">
                                                     <input type="hidden" value="{{$date}}" min="<?php $y= date("Y");$m= date("m");$d= date("d");$e= "$y-$m-$d";echo $e;?>" name="checkDate">
                                                     <input type="submit" value="Check Availability" name="submit"class="btn btn-primary btn-xs" style="margin-top: 10px;">
 
