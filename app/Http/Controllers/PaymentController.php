@@ -133,9 +133,15 @@ class PaymentController extends Controller
             DB::table('bookings')
                 ->where('bookingId', $request->bid)
                 ->update(['paymentStatus' => 1]);
-            $usere=Auth::user()->email;
 
-            $data = array('name'=>"wa", "body" => "Alert");
+            $ser = DB::table('bookings')->leftJoin('services','services.id','bookings.serviceId')->where('bookingId',$request->bid)->first();
+
+            $usere=Auth::user()->email;
+            $name=Auth::user()->name;
+            $cno=Auth::user()->cno;
+
+
+            $data = array('name'=>$name,'email'=>$usere, "cno" => $cno, 'serviceName'=>$ser->serviceName,'date'=>$ser->date,'time'=>$ser->time,'fee'=>$ser->serviceFee);
 
             Mail::send('email/bill', $data, function($message) use($usere) {
                 $message->to($usere)
