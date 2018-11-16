@@ -43,8 +43,9 @@
                                     <a class="button" data-toggle="collapse" href="#rese{{$service->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">Reserve Now</a>
                                     <div class="collapse" id="rese{{$service->id}}" style="margin-top: 5px;">
                                         <div class="card card-body">
-                                             <form method="post" action="{{route('checkAvailability')}}">
+                                             <form method="get" action="{{route('checkAvailability')}}">
                                                  {{csrf_field()}}
+                                                 <input type="text" value="{{$service->id}}" name="sid">
                                                  <input type="date" min="<?php $y= date("Y");$m= date("m");$d= date("d");$e= "$y-$m-$d";echo $e;?>" name="checkDate">
                                                  <input type="submit" value="Check Availability" name="submit"class="btn btn-primary btn-xs" style="margin-top: 10px;">
 

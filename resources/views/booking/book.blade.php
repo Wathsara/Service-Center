@@ -15,7 +15,7 @@
                             <ul>
                                 <li><a href="#">Home</a></li>
                                 <li><a href="#">services</a></li>
-                                <li class="active">Pricing</li>
+                                <li class="active">Reserve</li>
                             </ul>
                         </div><!-- /.breadcrumbs -->
                     </div><!-- /.col-md-12 -->
@@ -36,21 +36,18 @@
                                 <div class="col-md-8 offset-2">
                                     <div class="flat-price">
                                         <div class="column-container">
-                                            <div class="plan"></div>
-                                            <div class="price">LKR <br></div>
-                                            <div class="description" style="height: 20vh;overflow-y: scroll"></div>
-                                            <div class="cta">
-                                                <a class="button" data-toggle="collapse" href="#rese" role="button" aria-expanded="false" aria-controls="collapseExample">Reserve Now</a>
-                                                <div class="collapse" id="rese" style="margin-top: 5px;">
-                                                    <div class="card card-body">
-                                                        <form method="get" action="">
-                                                            {{csrf_field()}}
-                                                            <input type="date" min="<?php $y= date("Y");$m= date("m");$d= date("d");$e= "$y-$m-$d";echo $e;?>" name="checkDate">
-                                                            <input type="submit" value="Check Availability" name="submit"class="btn btn-primary btn-xs" style="margin-top: 10px;">
 
-                                                        </form>
-                                                    </div>
-                                                </div>
+                                            <div class="plan">{{$service->serviceName}}</div>
+                                            <div class="description">{{$service->serviceDiscription}}</div>
+                                            <div class="price">LKR {{$service->serviceFee}} <br>{{$date}}</div>
+                                            <div class="cta">
+                                                <form method="get" action="">
+                                                    {{csrf_field()}}
+                                                    <input type="hidden" value="{{$date}}" min="<?php $y= date("Y");$m= date("m");$d= date("d");$e= "$y-$m-$d";echo $e;?>" name="checkDate">
+                                                    <input type="submit" value="Check Availability" name="submit"class="btn btn-primary btn-xs" style="margin-top: 10px;">
+
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>

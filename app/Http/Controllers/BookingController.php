@@ -9,7 +9,14 @@ class BookingController extends Controller
 {
     public function checkAvailability(Request $request){
         $date =$request->checkDate;
-        DB::table('bookings')->where('date',$date)->get();
-        return view('booking/book');
+        $service = DB::table('services')->where('id',$request->sid)->first();
+        $alreadyBooked =DB::table('bookings')->where('date',$date)->get();
+        $timesTaken = array();
+        foreach ($alreadyBooked as $ab){
+            array_push($timesTaken,$ab->time);
+        }
+
+
+        return view('booking/book',compact('service','timesTaken','date'));
     }
 }
