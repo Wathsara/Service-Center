@@ -57,6 +57,12 @@ Route::get('service',[
     'as' => 'service'
 ]);
 
+//appointment detail view
+Route::get('appointment',[
+    'uses' => 'BookingController@appointment',
+    'as' => 'appointment'
+]);
+
 //add service route
 Route::post('addService',[
     'uses' => 'ServiceController@addService',

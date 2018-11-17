@@ -37,4 +37,14 @@ class BookingController extends Controller
         return redirect()->route('payment', ['bid'=>$booking->bookingId, 'amount'=>$price]);
 
     }
+
+    public function appointment(){
+        $date=date("Y-m-d");
+        $alreadyBooked =DB::table('bookings')->where('date',$date)->where('paymentStatus',1)->get();
+        $timesTaken = array();
+        foreach ($alreadyBooked as $ab){
+            array_push($timesTaken,$ab->time);
+        }
+        return view('admin/appointment',compact('timesTaken','date'));
+    }
 }

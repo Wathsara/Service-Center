@@ -104,11 +104,18 @@
                     </a>
                 </li>
                 <li class="nav-item ">
+                    <a class="nav-link" href="{{route('appointment')}}">
+                        <i class="material-icons">bookings</i>
+                        <p> Appointments</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a class="nav-link" href="{{route('service')}}">
                         <i class="material-icons">content_paste</i>
                         <p> Services</p>
                     </a>
                 </li>
+
 
                 <li class="nav-item ">
                     <a class="nav-link" data-toggle="collapse" href="">
