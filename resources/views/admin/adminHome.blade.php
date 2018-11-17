@@ -41,12 +41,11 @@
                                     <i class="material-icons">weekend</i>
                                 </div>
                                 <p class="card-category">Bookings</p>
-                                <h3 class="card-title">184</h3>
+                                <h3 class="card-title">{{DB::table('bookings')->where('paymentStatus',1)->count()}}</h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons text-danger">warning</i>
-                                    <a href="#pablo">Get More Space...</a>
+                                    <i class="material-icons">update</i> All time Bookings
                                 </div>
                             </div>
                         </div>
@@ -57,12 +56,28 @@
                                 <div class="card-icon">
                                     <i class="material-icons">equalizer</i>
                                 </div>
-                                <p class="card-category">Website Visits</p>
-                                <h3 class="card-title">75.521</h3>
+                                <p class="card-category">Users</p>
+                                <h3 class="card-title">{{DB::table('users')->count()}}</h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">local_offer</i> Tracked from Google Analytics
+                                    <i class="material-icons">update</i> Registerd Users
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header card-header-info card-header-icon">
+                                <div class="card-icon">
+                                    <i class="material-icons">store</i>
+                                </div>
+                                <p class="card-category">Today Revenue</p>
+                                <h4 class="card-title">LKR {{$todaySum}}</h4>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">update</i> Just Updated
                                 </div>
                             </div>
                         </div>
@@ -74,31 +89,17 @@
                                     <i class="material-icons">store</i>
                                 </div>
                                 <p class="card-category">Revenue</p>
-                                <h3 class="card-title">$34,245</h3>
+
+                                <h4 class="card-title">LKR {{$sum}}</h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">date_range</i> Last 24 Hours
+                                    <i class="material-icons">update</i> All time Revenue
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-info card-header-icon">
-                                <div class="card-icon">
-                                    <i class="fa fa-twitter"></i>
-                                </div>
-                                <p class="card-category">Followers</p>
-                                <h3 class="card-title">+245</h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
 
                 <div class="row">
@@ -366,7 +367,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
         </div>
 
