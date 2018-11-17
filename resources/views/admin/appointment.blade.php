@@ -81,8 +81,56 @@
                                             <i class="material-icons" data-notify="icon">update</i>
                                             <span data-notify="message" style="text-align: center">
                                                 <h3>8.00 AM</h3>
-                                                 <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
+                                                 <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#8">View Details</button>
+                                                   <div class="modal fade" id="8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel">Update Service</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','8.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','8.00')->first();
 
+                                                                    ?>
+
+                                                                    <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="08.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                             </span>
                                         </div>
@@ -102,7 +150,56 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                 <h3>9.00 AM</h3>
-                                                <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
+                                                <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#9">View Details</button>
+                                                <div class="modal fade" id="9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Customer Details</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','9.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','9.00')->first();
+
+                                                                    ?>
+
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="09.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
                                             </span>
@@ -123,7 +220,57 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                 <h3>10.00 AM</h3>
-                                                <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
+                                                <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#10">View Details</button>
+                                                        <div class="modal fade" id="10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Customer Details</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','10.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','10.00')->first();
+
+                                                                    ?>
+
+                                                                    <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="10.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 
 
                                             </span>
@@ -144,7 +291,56 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                 <h3>11.00 AM</h3>
-                                                <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
+                                                <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#11">View Details</button>
+                                                   <div class="modal fade" id="11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Customer Details</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','11.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','11.00')->first();
+
+                                                                    ?>
+
+                                                                    <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="11.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
                                             </span>
@@ -169,7 +365,56 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                 <h3>1.00 PM</h3>
-                                                 <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>Booked</button>
+                                                 <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#13">View Details</button>
+                                                   <div class="modal fade" id="13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Customer Details</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','13.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','13.00')->first();
+
+                                                                    ?>
+
+                                                                    <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="13.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
                                             </span>
@@ -190,7 +435,56 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                 <h3>2.00 PM</h3>
-                                                <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
+                                                <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#14">View Details</button>
+                                                   <div class="modal fade" id="14" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Customer Details</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','14.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','14.00')->first();
+
+                                                                    ?>
+
+                                                                    <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="14.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
                                             </span>
@@ -211,7 +505,56 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                 <h3>3.00 PM</h3>
-                                                <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
+                                                <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#15">View Details</button>
+                                                   <div class="modal fade" id="15" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Customer Details</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','15.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','15.00')->first();
+
+                                                                    ?>
+
+                                                                    <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="15.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
                                             </span>
@@ -232,7 +575,56 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                 <h3>4.00 PM</h3>
-                                                <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
+                                                <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#16">View Details</button>
+                                                   <div class="modal fade" id="16" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Customer Details</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php
+                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','16.00')->first();
+                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','16.00')->first();
+
+                                                                    ?>
+
+                                                                    <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Service Name</label><br>
+                                                                            <input type="text" class="form-control" value="{{$service->serviceName}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Date</label><br>
+                                                                            <input type="text" class="form-control" value="{{$date}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceDiscription" style="font-size: 18px;">Time</label><br>
+                                                                            <input type="text" class="form-control" value="16.00" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName"style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" value="{{$customer->name}}" disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->cno}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceFee" style="font-size: 18px;">Customer Email Number</label><br>
+                                                                            <input type="text" class="form-control" value="{{$customer->email}}"  disabled>
+                                                                        </div><br>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
                                             </span>
