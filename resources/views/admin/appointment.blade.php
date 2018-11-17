@@ -16,6 +16,7 @@
                 <h3>Bookings</h3>
                 <br>
 
+
                 @if(Session::has('serviceadd'))
                     <div class="alert alert-success" role="alert">
                         <strong>Service Successfully Added</strong>
@@ -48,13 +49,28 @@
 
 
                 <div class="row">
+
+
                     <div class="col-md-12">
-                        <br>
+                        <div class="col-md-6 offset-4">
+                            <div class="input-group no-border" style="float: right">
+                                <form method="get" action="{{route('checkBooking')}}" class="navbar-form">
+                                    {{csrf_field()}}
+                                    <div class="row" style="text-align: center">
+
+                                        <input type="date" name="checkDate" class="form-control" required>
+                                        <input type="submit" value="Check Bookings" name="submit"class="btn btn-primary btn-xs" style="margin-top: 10px;">
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         <div class="card">
                             <div class="card-header card-header-rose card-header-icon">
                                 <div class="card-icon">
                                     <i class="material-icons">weekend</i>
                                 </div>
+
                                 <h2 class="card-title" style="text-align: center">Bookings On {{$date}} </h2>
                             </div>
                             <div class="card-body">
@@ -65,7 +81,7 @@
                                             <i class="material-icons" data-notify="icon">update</i>
                                             <span data-notify="message" style="text-align: center">
                                                 <h3>8.00 AM</h3>
-                                                 <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>Booked</button>
+                                                 <button class="btn btn-warning btn-round" style="background-color: #505050" disabled>View Details</button>
 
 
                                             </span>

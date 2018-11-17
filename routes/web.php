@@ -63,6 +63,12 @@ Route::get('appointment',[
     'as' => 'appointment'
 ]);
 
+//appointment filer using date
+Route::get('checkBooking',[
+    'uses' => 'BookingController@checkBooking',
+    'as' => 'checkBooking'
+]);
+
 //add service route
 Route::post('addService',[
     'uses' => 'ServiceController@addService',

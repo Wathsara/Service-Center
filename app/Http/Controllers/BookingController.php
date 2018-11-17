@@ -47,4 +47,15 @@ class BookingController extends Controller
         }
         return view('admin/appointment',compact('timesTaken','date'));
     }
+
+    public function checkBooking(Request $request){
+        $date=$request->checkDate;
+        $alreadyBooked =DB::table('bookings')->where('date',$date)->where('paymentStatus',1)->get();
+        $timesTaken = array();
+        foreach ($alreadyBooked as $ab){
+            array_push($timesTaken,$ab->time);
+        }
+        return view('admin/appointment',compact('timesTaken','date'));
+
+    }
 }
