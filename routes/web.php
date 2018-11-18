@@ -63,6 +63,12 @@ Route::get('appointment',[
     'as' => 'appointment'
 ]);
 
+//appointment time block
+Route::post('blockNow',[
+    'uses' => 'BookingController@blockNow',
+    'as' => 'blockNow'
+]);
+
 //appointment filer using date
 Route::get('checkBooking',[
     'uses' => 'BookingController@checkBooking',

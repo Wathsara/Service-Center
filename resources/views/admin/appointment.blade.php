@@ -94,6 +94,10 @@
                                                                 <div class="modal-body">
                                                                     <?php
                                                                     $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','8.00')->first();
+                                                                    if($customer->userId==0){
+                                                                        $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','8.00')->first();
+
+                                                                    }
                                                                     $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','8.00')->first();
 
                                                                     ?>
@@ -139,7 +143,58 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>8.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b8">Book Now</button>
+                                                        <div class="modal fade" id="b8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="8.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                             </div>
                                         @endif
@@ -162,8 +217,13 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <?php
-                                                                    $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','9.00')->first();
-                                                                    $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','9.00')->first();
+
+                                                                        $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','9.00')->first();
+                                                                        if($customer->userId==0){
+                                                                            $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','9.00')->first();
+
+                                                                        }
+                                                                        $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','9.00')->first();
 
                                                                     ?>
 
@@ -209,7 +269,58 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                     <h3>9.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b9">Book Now</button>
+                                                        <div class="modal fade" id="b9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="9.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                                 </div>
                                             @endif
@@ -233,6 +344,10 @@
                                                                 <div class="modal-body">
                                                                     <?php
                                                                     $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','10.00')->first();
+                                                                    if($customer->userId==0){
+                                                                        $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','10.00')->first();
+
+                                                                    }
                                                                     $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','10.00')->first();
 
                                                                     ?>
@@ -280,7 +395,58 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                     <h3>10.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b10">Book Now</button>
+                                                        <div class="modal fade" id="b10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="10.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                                 </div>
                                             @endif
@@ -304,6 +470,10 @@
                                                                 <div class="modal-body">
                                                                     <?php
                                                                     $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','11.00')->first();
+                                                                    if($customer->userId==0){
+                                                                        $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','11.00')->first();
+
+                                                                    }
                                                                     $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','11.00')->first();
 
                                                                     ?>
@@ -350,7 +520,58 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                     <h3>11.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b11">Book Now</button>
+                                                        <div class="modal fade" id="b11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="11.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                                 </div>
                                             @endif
@@ -378,6 +599,10 @@
                                                                 <div class="modal-body">
                                                                     <?php
                                                                     $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','13.00')->first();
+                                                                    if($customer->userId==0){
+                                                                        $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','13.00')->first();
+
+                                                                    }
                                                                     $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','13.00')->first();
 
                                                                     ?>
@@ -424,7 +649,58 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>1.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b13">Book Now</button>
+                                                        <div class="modal fade" id="b13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="13.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                             </div>
                                         @endif
@@ -448,6 +724,10 @@
                                                                 <div class="modal-body">
                                                                     <?php
                                                                     $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','14.00')->first();
+                                                                    if($customer->userId==0){
+                                                                        $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','14.00')->first();
+
+                                                                    }
                                                                     $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','14.00')->first();
 
                                                                     ?>
@@ -494,7 +774,58 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>2.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b14">Book Now</button>
+                                                        <div class="modal fade" id="b14" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="14.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                             </div>
                                         @endif
@@ -518,6 +849,10 @@
                                                                 <div class="modal-body">
                                                                     <?php
                                                                     $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','15.00')->first();
+                                                                    if($customer->userId==0){
+                                                                        $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','15.00')->first();
+
+                                                                    }
                                                                     $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','15.00')->first();
 
                                                                     ?>
@@ -564,7 +899,58 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>3.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b15">Book Now</button>
+                                                        <div class="modal fade" id="b15" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="15.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                             </div>
                                         @endif
@@ -588,6 +974,10 @@
                                                                 <div class="modal-body">
                                                                     <?php
                                                                     $customer = DB::table('bookings')->leftjoin('users','users.id','bookings.userId')->where('date',$date)->where('time','16.00')->first();
+                                                                    if($customer->userId==0){
+                                                                        $customer = DB::table('bookings')->leftjoin('customers','customers.bid','bookings.bookingId')->where('date',$date)->where('time','16.00')->first();
+
+                                                                    }
                                                                     $service = DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('date',$date)->where('time','16.00')->first();
 
                                                                     ?>
@@ -634,7 +1024,58 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>4.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b16">Book Now</button>
+                                                        <div class="modal fade" id="b16" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h2 class="modal-title" id="exampleModalLabel" style="color: black">Reserve the Slot</h2>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <?php $service = DB::table('services')->get(); ?>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('blockNow')}}" method="post">
+                                                                        {{csrf_field()}}
+
+                                                                        <input type="hidden" value="16.00" name="time">
+                                                                        <input type="hidden" value="{{$date}}" name="date">
+                                                                        <div class="form-group">
+                                                                            <label for="name" style="font-size: 18px;">Customer Name</label><br>
+                                                                            <input type="text"  class="form-control" id="name" name="name" placeholder="Jacky John" required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Email</label><br>
+                                                                            <input type="email" class="form-control" id="email" name="email" placeholder="abc@gmail.com"  required>
+                                                                        </div><br>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email" style="font-size: 18px;">Customer Contact Number</label><br>
+                                                                            <input type="number" step="0.01" class="form-control" id="cno" name="cno" placeholder="0711231456"  required>
+                                                                        </div><br>
+                                                                        <div class="form-group">
+                                                                            <label for="serviceName" style="float: left;margin-bottom: 15px;">Service name</label><br>
+
+                                                                            <select class="form-control" style="margin-top:15px; " name="serviceName" required>
+                                                                                @foreach($service as $ser)
+                                                                                    <option class="form-control" value="{{$ser->id}}">{{$ser->serviceName}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div><br>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </span>
                                             </div>
                                         @endif

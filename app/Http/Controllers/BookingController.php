@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -57,5 +59,40 @@ class BookingController extends Controller
         }
         return view('admin/appointment',compact('timesTaken','date'));
 
+    }
+
+    public function blockNow(Request $request){
+        $book = new Booking();
+        $book->serviceId=$request->serviceName;
+        $book->userId=0;
+        $book->time=$request->time;
+        $book->date=$request->date;
+        $book->paymentStatus=1;
+        $book->save();
+
+        $book=DB::table('bookings')->orderBy('bookingId','DESC')->first();
+
+        $c= new Customer();
+        $c->bid=$book->bookingId;
+        $c->name=$request->name;
+        $c->email=$request->email;
+        $c->cno=$request->cno;
+        $c->save();
+
+
+        $usere=$request->email;
+        $name=$request->name;
+        $cno=$request->cno;
+        $ser= DB::table('services')->where('id',$request->serviceName)->first();
+
+        $data = array('name'=>$name,'email'=>$usere, "cno" => $cno, 'serviceName'=>$ser->serviceName,'date'=>$request->date,'time'=>$request->time,'fee'=>$ser->serviceFee);
+
+        Mail::send('email/bill', $data, function($message) use($usere) {
+            $message->to($usere)
+                ->subject('Billing Invoice');
+            $message->from('akashsahan963@gmail.com','Chathuranga Auto Care Center');
+        });
+
+        return back();
     }
 }
