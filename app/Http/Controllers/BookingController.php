@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class BookingController extends Controller
 {
@@ -92,7 +93,7 @@ class BookingController extends Controller
                 ->subject('Billing Invoice');
             $message->from('akashsahan963@gmail.com','Chathuranga Auto Care Center');
         });
-
+        Session::put('add', 'Booking Details');
         return back();
     }
 }

@@ -17,40 +17,16 @@
                 <br>
 
 
-                @if(Session::has('serviceadd'))
+                @if(Session::has('add'))
                     <div class="alert alert-success" role="alert">
-                        <strong>Service Successfully Added</strong>
+                        <strong>Booking Details Successfully Added</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    {{ Session::forget('serviceadd') }}
+                    {{ Session::forget('add') }}
                 @endif
-
-                @if(Session::has('serviceupdate'))
-                    <div class="alert alert-success" role="alert">
-                        <strong>Service Successfully Updated</strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    {{ Session::forget('serviceupdate') }}
-                @endif
-
-                @if(Session::has('servicedel'))
-                    <div class="alert alert-warning" role="alert">
-                        <strong>Service Successfully Deleted</strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    {{ Session::forget('servicedel') }}
-                @endif
-
-
                 <div class="row">
-
-
                     <div class="col-md-12">
                         <div class="col-md-6 offset-4">
                             <div class="input-group no-border" style="float: right">
@@ -143,7 +119,7 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>8.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b8">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b8">Add Details</button>
                                                         <div class="modal fade" id="b8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -269,7 +245,7 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                     <h3>9.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b9">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b9">Add Details</button>
                                                         <div class="modal fade" id="b9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -395,7 +371,7 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                     <h3>10.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b10">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b10">Add Details</button>
                                                         <div class="modal fade" id="b10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -520,7 +496,7 @@
                                                     <i class="material-icons" data-notify="icon">update</i>
                                                     <span data-notify="message" style="text-align: center">
                                                     <h3>11.00 AM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b11">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b11">Add Details</button>
                                                         <div class="modal fade" id="b11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -649,7 +625,7 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>1.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b13">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b13">Add Details</button>
                                                         <div class="modal fade" id="b13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -774,7 +750,7 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>2.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b14">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b14">Add Details</button>
                                                         <div class="modal fade" id="b14" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -899,7 +875,7 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>3.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b15">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b15">Add Details</button>
                                                         <div class="modal fade" id="b15" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -1024,7 +1000,7 @@
                                                 <i class="material-icons" data-notify="icon">update</i>
                                                 <span data-notify="message" style="text-align: center">
                                                     <h3>4.00 PM</h3>
-                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b16">Book Now</button>
+                                                    <button class="btn btn-warning btn-round" style="background-color: #505050" data-toggle="modal" data-target="#b16">Add Details</button>
                                                         <div class="modal fade" id="b16" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -26,5 +27,15 @@ class HomeController extends Controller
     {
         $services=DB::table('services')->get();
         return view('home',compact('services'));
+    }
+
+    public function findUserType(){
+        if(Auth::user()->admin==true){
+            return redirect()->route('dashboard');
+        }else{
+            return redirect()->route('home');
+        }
+
+
     }
 }
