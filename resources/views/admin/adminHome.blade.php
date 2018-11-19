@@ -775,15 +775,15 @@
     </script>
     <script type="text/javascript">
         var ctx = document.getElementById("mychart1");
-        var lab =  [1,2,3,4];
-        var dt = [100,500,780,145];
+        var lab =  <?php echo json_encode($sericen); ?>;
+        var dt = <?php echo json_encode($servicount); ?>;
 
         var myChart = new Chart(ctx, {
-            type: 'line',
+            type: 'pie',
             data: {
                 labels: lab,
                 datasets: [{
-                    label: 'Number of Tasks',
+                    label: 'Service Count',
                     data: dt,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -817,8 +817,8 @@
     </script>
     <script type="text/javascript">
         var ctx = document.getElementById("mychart2");
-        var lab =  [1,2,3,4];
-        var dt = [100,500,780,145];
+        var lab =  <?php echo json_encode($month); ?>;
+        var dt = <?php echo json_encode($totalRevenue); ?>;
 
         var myChart = new Chart(ctx, {
             type: 'bar',
