@@ -110,12 +110,29 @@
                             </div>
                             <div class="card-body">
 
-                                <h4 class="card-title">Service Usage</h4>
-                                <p class="card-category">Last Campaign Performance</p>
+                                <h4 class="card-title">Revenue</h4>
+
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                    <i class="material-icons">access_time</i> Updated Now
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-chart">
+                            <div class="card-header"  data-header-animation="true">
+                                <canvas  id="mychart1"></canvas>
+                            </div>
+                            <div class="card-body">
+
+                                <h4 class="card-title">Service Usage</h4>
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">access_time</i> Updated Now
                                 </div>
                             </div>
                         </div>
@@ -123,34 +140,15 @@
                     <div class="col-md-4">
                         <div class="card card-chart">
                             <div class="card-header" data-header-animation="true">
-                                <canvas  id="mychart1"></canvas>
-                            </div>
-                            <div class="card-body">
-
-                                <h4 class="card-title">Daily Sales</h4>
-                                <p class="card-category">
-                                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-chart">
-                            <div class="card-header card-header-info" data-header-animation="true">
-                                <div class="ct-chart" id="completedTasksChart"></div>
+                                <canvas  id="mychart2"></canvas>
                             </div>
                             <div class="card-body">
 
                                 <h4 class="card-title">Completed Tasks</h4>
-                                <p class="card-category">Last Campaign Performance</p>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                    <i class="material-icons">access_time</i> Updated Now
                                 </div>
                             </div>
                         </div>
@@ -734,7 +732,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script type="text/javascript">
-        var ctx = document.getElementById("mychart1");
+        var ctx = document.getElementById("myChart");
         var lab =  [1,2,3,4];
         var dt = [100,500,780,145];
 
@@ -776,12 +774,54 @@
         });
     </script>
     <script type="text/javascript">
-        var ctx = document.getElementById("myChart");
+        var ctx = document.getElementById("mychart1");
         var lab =  [1,2,3,4];
         var dt = [100,500,780,145];
 
         var myChart = new Chart(ctx, {
             type: 'line',
+            data: {
+                labels: lab,
+                datasets: [{
+                    label: 'Number of Tasks',
+                    data: dt,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        var ctx = document.getElementById("mychart2");
+        var lab =  [1,2,3,4];
+        var dt = [100,500,780,145];
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
             data: {
                 labels: lab,
                 datasets: [{
