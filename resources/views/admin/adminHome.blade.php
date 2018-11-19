@@ -105,12 +105,12 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-chart">
-                            <div class="card-header card-header-rose" data-header-animation="true">
-                                <div class="ct-chart" id="websiteViewsChart"></div>
+                            <div class="card-header " data-header-animation="true">
+                                <canvas  id="myChart"></canvas>
                             </div>
                             <div class="card-body">
 
-                                <h4 class="card-title">Website Views</h4>
+                                <h4 class="card-title">Service Usage</h4>
                                 <p class="card-category">Last Campaign Performance</p>
                             </div>
                             <div class="card-footer">
@@ -122,8 +122,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card card-chart">
-                            <div class="card-header card-header-success" data-header-animation="true">
-                                <div class="ct-chart" id="dailySalesChart"></div>
+                            <div class="card-header" data-header-animation="true">
+                                <canvas  id="mychart1"></canvas>
                             </div>
                             <div class="card-body">
 
@@ -722,21 +722,6 @@
 
     </noscript>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
         $(document).ready(function(){
             // Javascript method's body can be found in assets/js/demos.js
@@ -744,6 +729,92 @@
 
             md.initVectorMap();
 
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type="text/javascript">
+        var ctx = document.getElementById("mychart1");
+        var lab =  [1,2,3,4];
+        var dt = [100,500,780,145];
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: lab,
+                datasets: [{
+                    label: 'Number of Tasks',
+                    data: dt,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        var ctx = document.getElementById("myChart");
+        var lab =  [1,2,3,4];
+        var dt = [100,500,780,145];
+
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: lab,
+                datasets: [{
+                    label: 'Number of Tasks',
+                    data: dt,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
         });
     </script>
 

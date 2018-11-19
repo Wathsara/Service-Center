@@ -206,7 +206,7 @@
 
     </div>
 
-    
+
 
     <!--   Core JS Files   -->
     <script src="https://demos.creative-tim.com/material-dashboard-pro/assets/js/core/jquery.min.js" type="text/javascript"></script>
