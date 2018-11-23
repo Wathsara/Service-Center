@@ -85,19 +85,21 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                                         </li>
+
                                                         <li class="nav-item">
                                                             @if (Route::has('register'))
                                                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                                             @endif
                                                         </li>
                                                     @else
-                                                        {{--<li class="nav-item dropdown">--}}
+
+                                                        <li>
                                                             <a style="color: white" id="navbarDropdown"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                                             </a>
 
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                                <a style="color: black" class="dropdown-item" href="{{ route('logout') }}"
                                                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                                                     {{ __('Logout') }}
@@ -107,7 +109,9 @@
                                                                     @csrf
                                                                 </form>
                                                             </div>
-                                                        {{--</li>--}}
+                                                       </li>
+
+
                                                     @endguest
 
                                 </ul>
@@ -173,48 +177,37 @@
                                                     <a href="{{url('/')}}">Home</a>
 
                                                 </li>
-                                                <li><a href="about.html">About</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="about-team.html">Our Team</a></li>
-                                                        <li><a href="about-client.html">Clients</a></li>
-                                                        <li><a href="about-question.html">Questions &amp; Answers</a></li>
-                                                        <li><a href="about-reviews.html">Reviews</a></li>
-                                                    </ul><!-- /.submenu -->
-                                                </li>
 
                                                 <li>
                                                     <a href="{{route('ServiceList')}}">Services</a>
 
                                                 </li>
 
-                                                <li><a href="blog-default.html">Blog</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="blog-default.html">Blog Default</a></li>
-                                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                                        <li><a href="blog-medium.html">Blog Medium</a></li>
-                                                    </ul><!-- /.submenu -->
-                                                </li>
-                                                <li><a href="gallery-v1.html">Gallery</a>
-                                                    <ul class="submenu">
+                                                <li><a href="{{route('contactUs')}}">Contact</a></li>
+                                                @guest
 
-                                                        <li><a href="gallery-v1.html">Gallery Style 01</a></li>
-                                                        <li><a href="gallery-v2.html">Gallery Style 02</a></li>
-                                                        <li><a href="gallery-v3.html">Gallery Style 03</a></li>
-                                                        <li class="sub-parent"><a href="#">Gallery Details</a>
-                                                            <ul class="submenu">
-                                                                <li><a href="gallery-list.html">Gallery Type List</a></li>
-                                                                <li><a href="gallery-slider.html">Gallery Type Slider</a></li>
-                                                                <li><a href="gallery-grid.html">Gallery Type Grid</a></li>
-                                                                <li><a href="gallery-content-left.html">Content Position Left</a></li>
-                                                                <li><a href="gallery-content-right.html">Content Position Right</a></li>
-                                                                <li><a href="gallery-content-fullwidth.html">Content Fullwidth</a></li>
-                                                                <li><a href="gallery-content-sticky.html">Sticky Content</a></li>
-                                                            </ul><!-- /.submenu -->
-                                                        </li>
-                                                    </ul><!-- /.submenu -->
-                                                </li>
-                                                <li><a href="shop.html">Shop </a></li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                @else
+                                                    <?php
+                                                    $date=\Carbon\Carbon::now();
+                                                    $mybooking=DB::table('bookings')->leftjoin('services','services.id','bookings.serviceId')->where('userId',Auth::user()->id)->where('date','>=',$date)->get();
+                                                    ?>
+                                                    <li><a>Your Upcoming Bookings <label class="label label-success">{{$mybooking->count()}}</label></a>
+                                                        <ul class="submenu">
+
+                                                            @foreach($mybooking as $mb)
+                                                                 <li>
+                                                                     <a style="text-align: center;color: white">
+                                                                         <h3 style="color: white">{{$mb->serviceName}}</h3>
+                                                                         <h5 style="color: white">Date : {{$mb->date}}</h5>
+                                                                         <h5 style="color: white">Time : {{$mb->time}}</h5>
+                                                                         <h5 style="color: white">LKR {{$mb->serviceFee}}</h5>
+                                                                     </a>
+                                                                 </li>
+                                                            @endforeach
+                                                        </ul><!-- /.submenu -->
+                                                    </li>
+                                                @endguest
+
                                             </ul><!-- /.menu -->
                                             <ul class="menu-extra">
 

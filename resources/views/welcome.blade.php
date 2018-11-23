@@ -416,7 +416,7 @@
                                         </div>
                                         <div class="project-info">
                                             <h3 class="project-title">
-                                                <a href="gallery-detail.html">Fire Car</a>
+                                                <a h6ref="gallery-detail.html">Fire Car</a>
                                             </h3>
                                             <ul class="project-categories">
                                                 <li><a href="gallery-detail.html">Car Polishing</a></li>

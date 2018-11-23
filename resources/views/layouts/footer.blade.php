@@ -34,7 +34,7 @@
                             <li ><a href="#">About Us</a></li>
                             <li ><a href="{{route('ServiceList')}}">Services</a></li>
                             <li ><a href="#">Our Team</a></li>
-                            <li ><a href="#">Contact Us</a></li>
+                            <li ><a href="{{route('contactUs')}}">Contact Us</a></li>
                             <li ><a href="#">Elements</a></li>
                         </ul>
                     </div>
