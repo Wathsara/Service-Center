@@ -103,14 +103,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="card card-chart">
                             <div class="card-header " data-header-animation="true">
-                                <canvas  id="myChart"></canvas>
+                                <canvas  id="mychart"></canvas>
                             </div>
                             <div class="card-body">
 
-                                <h4 class="card-title">Revenue</h4>
+                                <h4 class="card-title">Revenue by Month</h4>
 
                             </div>
                             <div class="card-footer">
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card card-chart">
                             <div class="card-header"  data-header-animation="true">
                                 <canvas  id="mychart1"></canvas>
@@ -137,14 +137,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card card-chart">
                             <div class="card-header" data-header-animation="true">
                                 <canvas  id="mychart2"></canvas>
                             </div>
                             <div class="card-body">
 
-                                <h4 class="card-title">Completed Tasks</h4>
+                                <h4 class="card-title">Revenue By Month</h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
@@ -816,7 +816,7 @@
         });
     </script>
     <script type="text/javascript">
-        var ctx = document.getElementById("mychart2");
+        var ctx = document.getElementById("mychart");
         var lab =  <?php echo json_encode($month); ?>;
         var dt = <?php echo json_encode($totalRevenue); ?>;
 
@@ -825,7 +825,7 @@
             data: {
                 labels: lab,
                 datasets: [{
-                    label: 'Number of Tasks',
+                    label: 'Revenue This Year by Monthly',
                     data: dt,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
