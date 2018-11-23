@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="themesflat.com">
-    <title>{{ config('app.name', 'Chathuranga Auto') }}</title>
+    <title>Chathuranga Auto Care</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -140,7 +140,7 @@
                                         <div class="textwidget">
                                             <div class="info-icon">
                                                 <i class="fa fa-phone"></i>
-                                                <div class="content">Call Us Now<br><span>1-888-345-6789</span></div>
+                                                <div class="content">Call Us Now<br><span>011 3 456 789 </span></div>
                                             </div>
                                         </div>
                                     </div><!-- /.widget-text -->
