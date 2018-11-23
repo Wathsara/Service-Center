@@ -126,8 +126,8 @@
                             <div class="col-md-12">
                                 <div class="site-logo">
                                     <div id="logo" class="logo">
-                                        <a href="index-2.html" rel="home">
-                                            <img src="{{ asset('images/logo2.png') }}" alt="image">
+                                        <a href="{{url('/')}}" rel="home">
+                                            <img src="{{ asset('images/cac.png') }}" style="width: 150px;height: 75px" alt="image">
                                         </a>
                                     </div><!-- /.logo -->
                                 </div>
@@ -152,7 +152,7 @@
 
                                     <div id="text-5" class="widget widget_text">
                                         <div class="textwidget">
-                                            <a href="{{url('/home')}}" class="button yellow"><i class="fa fa-calendar"></i>&nbsp; &nbsp;Make an Appointment</a>
+                                            <a href="{{route('ServiceList')}}" class="button yellow"><i class="fa fa-calendar"></i>&nbsp; &nbsp;Make an Appointment</a>
                                         </div>
                                     </div>
                                 </div><!-- /.header-widgets -->
@@ -170,11 +170,8 @@
                                         <nav id="mainnav" class="mainnav">
                                             <ul class="menu">
                                                 <li class="home">
-                                                    <a href="index-2.html">Home</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="index-2.html">Homepage 01 (Header Style 1)</a></li>
+                                                    <a href="{{url('/')}}">Home</a>
 
-                                                    </ul><!-- /.submenu -->
                                                 </li>
                                                 <li><a href="about.html">About</a>
                                                     <ul class="submenu">
@@ -185,15 +182,9 @@
                                                     </ul><!-- /.submenu -->
                                                 </li>
 
-                                                <li><a href="services-all.html">Services</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="services-all.html">All Services</a></li>
-                                                        <li><a href="services-inspection.html">Vehicle Inspection</a></li>
-                                                        <li><a href="services-diagnostic.html">Diagnostic Services</a></li>
-                                                        <li><a href="services-upgrades.html">Performance Upgrades</a></li>
-                                                        <li><a href="services-pricing.html">Pricing</a></li>
-                                                        <li><a href="services-detail.html">Detail Services With Sidebar</a></li>
-                                                    </ul><!-- /.submenu -->
+                                                <li>
+                                                    <a href="{{route('ServiceList')}}">Services</a>
+
                                                 </li>
 
                                                 <li><a href="blog-default.html">Blog</a>

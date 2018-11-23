@@ -22,10 +22,16 @@ Auth::routes(['verify' => true]);
 Route::get('/checkUserType','HomeController@findUserType');
 //Route::get('/home', 'HomeController@index')->middleware('verified');
 
-Route::get('home',[
+Route::get('ServiceList',[
     'uses' => 'HomeController@index',
-    'as' => 'home'
-])->middleware('verified');
+    'as' => 'ServiceList'
+]);
+
+//route to view contact us
+Route::get('contactUs',[
+    'uses' => 'HomeController@contactUs',
+    'as' => 'contactUs'
+]);
 
 // Route to ask the questions
 Route::post('question',[

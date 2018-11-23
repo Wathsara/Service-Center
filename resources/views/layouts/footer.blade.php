@@ -6,7 +6,7 @@
                     <div class="textwidget">
                         <div class="footer-info">
                             <p>
-                                <img  alt="AnyCar" src="images/logo1.png">
+                                <img  alt="AnyCar" src="{{asset('images/cac.png')}}">
                             </p>
                             <p>We offer a commitment to personalized service for our clients. If you have further questions or need help with a case, please complete our quick form below. A team<br>member will return your message as soon as possible.</p>
                             <div class="two-columns row">
@@ -28,11 +28,11 @@
                     </div>
                 </div>
                 <div class="widget widget_nav_menu">
-                    <h3 class="widget-title">Sample Pages</h3>
+                    <h3 class="widget-title">Pages</h3>
                     <div class="menu-sample-pages-container">
                         <ul  class="menu">
                             <li ><a href="#">About Us</a></li>
-                            <li ><a href="#">Services</a></li>
+                            <li ><a href="{{route('ServiceList')}}">Services</a></li>
                             <li ><a href="#">Our Team</a></li>
                             <li ><a href="#">Contact Us</a></li>
                             <li ><a href="#">Elements</a></li>
@@ -40,29 +40,16 @@
                     </div>
                 </div>
 
-                <div class="widget widget_nav_menu">
-                    <h3 class="widget-title">SPECIAL PAGES</h3>
-                    <div class="menu-sample-pages-container">
-                        <ul  class="menu">
-                            <li ><a href="#">Blank Page</a></li>
-                            <li ><a href="#">Maintenance Mode</a></li>
-                            <li ><a href="#">Coming Soon</a></li>
-                            <li ><a href="#">404 Page</a></li>
-                            <li ><a href="#">Right Sidebar</a></li>
-                            <li ><a href="#">Left Sidebar</a></li>
-                        </ul>
-                    </div>
-                </div>
 
                 <div class="widget widget_nav_menu">
                     <h3 class="widget-title">SERVICES</h3>
                     <div class="menu-sample-pages-container">
                         <ul  class="menu">
-                            <li ><a href="#">All Services</a></li>
-                            <li ><a href="#">Vehicle Inspection</a></li>
-                            <li ><a href="#">Diagnostic Services</a></li>
-                            <li ><a href="#">Performance</a></li>
-                            <li ><a href="#">Pricing</a></li>
+                            <?php $serviceList =DB::table('services')->get();?>
+                            @foreach($serviceList as $s)
+                            <li ><a href="#">{{$s->serviceName}}</a></li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
