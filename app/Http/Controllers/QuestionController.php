@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Session;
 
 class QuestionController extends Controller
 {
+    public function customerQuestion(){
+        $question = DB::table('questions')->where('status',0)->get();
+        $answer = DB::table('questions')->where('status',1)->orderBy('id','desc')->get();
+
+        return view('admin/questionView',compact('question','answer'));
+    }
     public function question(Request $request){
         $que = new Questions();
         $que->name=$request->name;
