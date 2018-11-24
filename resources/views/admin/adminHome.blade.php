@@ -144,7 +144,7 @@
                             </div>
                             <div class="card-body">
 
-                                <h4 class="card-title">Revenue By Month</h4>
+                                <h4 class="card-title">Users By Month</h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
@@ -732,16 +732,16 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script type="text/javascript">
-        var ctx = document.getElementById("myChart");
-        var lab =  [1,2,3,4];
-        var dt = [100,500,780,145];
+        var ctx = document.getElementById("mychart2");
+        var lab =   <?php echo json_encode($month); ?>;
+        var dt =  <?php echo json_encode($totalUsers); ?>;
 
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: lab,
                 datasets: [{
-                    label: 'Number of Tasks',
+                    label: 'Number of Users By Month',
                     data: dt,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -749,7 +749,13 @@
                         'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(23, 99, 65, 0.2)',
+                        'rgba(45, 99, 235, 0.2)',
+                        'rgba(66, 206, 45, 0.2)',
+                        'rgba(0, 0, 0, 0.2)',
+                        'rgba(245, 130, 48, 0.2)',
+                        'rgba(170, 110, 40, 0.2)'
                     ],
                     borderColor: [
                         'rgba(255,99,132,1)',
@@ -833,15 +839,27 @@
                         'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(23, 99, 65, 0.2)',
+                        'rgba(45, 99, 235, 0.2)',
+                        'rgba(66, 206, 45, 0.2)',
+                        'rgba(0, 0, 0, 0.2)',
+                        'rgba(245, 130, 48, 0.2)',
+                        'rgba(170, 110, 40, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
+                        'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
                         'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(23, 99, 65, 1)',
+                        'rgba(45, 99, 235, 1)',
+                        'rgba(66, 206, 45, 1)',
+                        'rgba(0, 0, 0, 1)',
+                        'rgba(245, 130, 48, 1)',
+                        'rgba(170, 110, 40, 1)'
                     ],
                     borderWidth: 1
                 }]

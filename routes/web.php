@@ -22,6 +22,8 @@ Auth::routes(['verify' => true]);
 Route::get('/checkUserType','HomeController@findUserType');
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
+
+//route to view the Service List
 Route::get('ServiceList',[
     'uses' => 'HomeController@index',
     'as' => 'ServiceList'
@@ -32,6 +34,12 @@ Route::get('contactUs',[
     'uses' => 'HomeController@contactUs',
     'as' => 'contactUs'
 ]);
+
+// Route to view the questions
+Route::get('customerQuestion',[
+    'uses' => 'QuestionController@customerQuestion',
+    'as' => 'customerQuestion'
+])->middleware('admin');
 
 // Route to ask the questions
 Route::post('question',[

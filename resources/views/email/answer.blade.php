@@ -242,7 +242,7 @@
                                                     <em>
                                                         Thank You For Contacting Us.
                                                         <br />
-                                                        Please <a href="#" target="_blank" class="link-u" style="color:#a88123; text-decoration:underline"><span class="link-u" style="color:#a88123; text-decoration:underline">contact us</span></a> with any questions.
+                                                        Please <a href="www.chathurangaautocare.tk/contactUs" target="_blank" class="link-u" style="color:#a88123; text-decoration:underline"><span class="link-u" style="color:#a88123; text-decoration:underline">contact us</span></a> with any questions.
                                                     </em>
                                                 </div>
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="35" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>

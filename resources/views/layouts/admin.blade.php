@@ -96,6 +96,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{route('customerQuestion')}}">
+                        <i class="material-icons">help</i>
+                        <p> Customer Question</p>
+                    </a>
+                </li>
+
 
 
             </ul>

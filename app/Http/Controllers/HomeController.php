@@ -33,7 +33,7 @@ class HomeController extends Controller
         if(Auth::user()->admin==true){
             return redirect()->route('dashboard');
         }else{
-            return redirect()->route('home');
+            return redirect('/home');
         }
 
 
