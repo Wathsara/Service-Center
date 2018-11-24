@@ -20,7 +20,7 @@ Auth::routes(['verify' => true]);
 
 // route to find user type
 Route::get('/checkUserType','HomeController@findUserType');
-//Route::get('/home', 'HomeController@index')->middleware('verified');
+Route::get('/home', 'HomeController@index')->middleware('verified');
 
 Route::get('ServiceList',[
     'uses' => 'HomeController@index',

@@ -6,7 +6,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="themesflat.com">
-    <title>{{ config('app.name', 'Chathuranga Auto') }}</title>
+    <link href="{{ asset('icon/favicon.png') }}" rel="shortcut icon">
+    <title>Chathuranga Auto Care</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
@@ -65,34 +66,13 @@
                     <img src="https://demos.creative-tim.com/material-dashboard-pro/assets/img/faces/avatar.jpg" />
                 </div>
                 <div class="user-info">
-                    <a data-toggle="collapse" href="#collapseExample" class="username">
+                    <a>
                     <span>
                        {{Auth::user()->name}}
-                      <b class="caret"></b>
+
                     </span>
                     </a>
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> MP </span>
-                                    <span class="sidebar-normal"> My Profile </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> EP </span>
-                                    <span class="sidebar-normal"> Edit Profile </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> S </span>
-                                    <span class="sidebar-normal"> Settings </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
             <ul class="nav">
