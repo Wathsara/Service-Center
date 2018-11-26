@@ -12,29 +12,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
     <!-- CSS Files -->
-
-
-
-
-
     <link href="https://demos.creative-tim.com/material-dashboard-pro/assets/css/material-dashboard.min.css?v=2.0.2" rel="stylesheet" />
-
-
-
-
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="https://demos.creative-tim.com/material-dashboard-pro/assets/demo/demo.css" rel="stylesheet" />
 
-    {{--<link href="{{ asset('css/adminCss/bootstrap.min.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/adminCss/sb-admin.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/adminCss/dataTable.bootstrap4.min.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/adminCss/all.min.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">--}}
-
-    {{--<script src="{{ asset('js/jquery.min.js') }}" defer></script>--}}
-    {{--<script src="{{ asset('js/bootstrap.min.js') }}" defer></script>--}}
-    {{--<script src="{{ asset('adminjs/sb-admin.min.js') }}" defer></script>--}}
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -63,7 +45,7 @@
 
             <div class="user">
                 <div class="photo">
-                    <img src="https://demos.creative-tim.com/material-dashboard-pro/assets/img/faces/avatar.jpg" />
+                    <img src="{{asset('admin.jpeg')}}" />
                 </div>
                 <div class="user-info">
                     <a>
@@ -92,7 +74,13 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('service')}}">
                         <i class="material-icons">content_paste</i>
-                        <p> Services</p>
+                        <p> Services Management</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{route('employee')}}">
+                        <i class="material-icons">content_paste</i>
+                        <p> Employee Management</p>
                     </a>
                 </li>
 

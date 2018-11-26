@@ -55,7 +55,7 @@
                                         <div class="card card-body">
                                              <form method="get" action="{{route('checkAvailability')}}">
                                                  {{csrf_field()}}
-                                                 <input type="text" value="{{$service->id}}" name="sid">
+                                                 <input type="hidden" value="{{$service->id}}" name="sid">
                                                  <input type="date" min="<?php $y= date("Y");$m= date("m");$d= date("d");$e= "$y-$m-$d";echo $e;?>" name="checkDate">
                                                  <input type="submit" value="Check Availability" name="submit"class="btn btn-primary btn-xs" style="margin-top: 10px;">
 
