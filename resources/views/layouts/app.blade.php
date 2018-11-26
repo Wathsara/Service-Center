@@ -140,7 +140,7 @@
                                         <div class="textwidget">
                                             <div class="info-icon">
                                                 <i class="fa fa-phone"></i>
-                                                <div class="content">Call Us Now<br><span>011 3 456 789 </span></div>
+                                                <div class="content">Call Us Now<br><span>036-2235617</span></div>
                                             </div>
                                         </div>
                                     </div><!-- /.widget-text -->
@@ -149,7 +149,7 @@
                                         <div class="textwidget">
                                             <div class="info-icon">
                                                 <i class="fa fa-map-marker yellow"></i>
-                                                <div class="content">66 Nicholson St<br><span>Buffalo New York US</span></div>
+                                                <div class="content">7/A/4 Vidya Road<br><span>Awissawella</span></div>
                                             </div>
                                         </div>
                                     </div><!-- /.widget-text -->

@@ -18,10 +18,10 @@ class CreateEmployeesTable extends Migration
             $table->string('employeeName');
             $table->string('employeeGender');
             $table->string('employeeType');
-            $table->integer('employeeContactNo');
+            $table->string('employeeContactNo');
             $table->text('employeeAddress');
             $table->string('employeeEmail');
-            $table->integer('employeeSalary');
+            $table->string('employeeSalary');
             $table->text('employeeDescription');
             $table->timestamps();
         });

@@ -26,6 +26,7 @@ class BookingController extends Controller
     }
 
     public function reserve(Request $request){
+
         $book = new Booking();
         $book->serviceId=$request->sid;
         $book->userId=Auth::user()->id;
@@ -63,6 +64,7 @@ class BookingController extends Controller
     }
 
     public function blockNow(Request $request){
+
         $book = new Booking();
         $book->serviceId=$request->serviceName;
         $book->userId=0;

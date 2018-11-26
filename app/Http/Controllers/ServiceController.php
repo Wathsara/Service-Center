@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class ServiceController extends Controller
 {
@@ -16,6 +17,12 @@ class ServiceController extends Controller
     }
 
     public function addService(Request $request){
+        $this->validate($request, [
+            'serviceName' => 'required|string|max:255',
+            'serviceDiscription' => 'required|string|max:255',
+            'serviceFee' => 'required|string|max:255'
+
+        ]);
         $ser = new Service();
         $ser->serviceName=$request->serviceName;
         $ser->serviceDiscription=$request->serviceDiscription;
@@ -27,6 +34,12 @@ class ServiceController extends Controller
     }
 
     public function updateService(Request $request){
+        $this->validate($request, [
+            'serviceName' => 'required|string|max:255',
+            'serviceDiscription' => 'required|string|max:255',
+            'serviceFee' => 'required|string|max:255'
+
+        ]);
         DB::table('services')
             ->where('id', $request->sid)
             ->update([

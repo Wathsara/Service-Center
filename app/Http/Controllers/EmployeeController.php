@@ -16,6 +16,17 @@ class EmployeeController extends Controller{
     }
 
     public function addEmployee(Request $request){
+        $this->validate($request, [
+            'employeeName' => 'required|string|max:255',
+            'employeeGender' => 'required|string|max:255',
+            'employeeType' => 'required|string|max:255',
+            'employeeAddress' => 'required|string|max:255',
+            'employeeEmail' => 'required|email|max:255',
+            'employeeSalary' => 'required|string|max:255',
+            'employeeDescription' => 'required|string|max:1000',
+            'employeeContactNo'=>'required|string|min:10|max:10'
+
+        ]);
         $emp = new Employee();
         $emp->employeeName = $request->employeeName;
         $emp->employeeGender = $request->employeeGender;
@@ -39,6 +50,17 @@ class EmployeeController extends Controller{
     }
 
     public function updateEmployee(Request $request){
+        $this->validate($request, [
+            'employeeName' => 'required|string|max:255',
+            'employeeGender' => 'required|string|max:255',
+            'employeeType' => 'required|string|max:255',
+            'employeeAddress' => 'required|string|max:255',
+            'employeeEmail' => 'required|email|max:255',
+            'employeeSalary' => 'required|string|max:255',
+            'employeeDescription' => 'required|string|max:1000',
+            'employeeContactNo'=>'required|string|min:10|max:10'
+
+        ]);
         DB::table('employees')
             ->where('id',$request->eid)
             ->update(['employeeName' => $request->employeeName,

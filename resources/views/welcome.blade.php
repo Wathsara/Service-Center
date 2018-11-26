@@ -143,37 +143,19 @@
             <div class="container">
                 <div class="row">
                     <div class="three-columns">
-                        <div class="images-single object">
-                            <div class="thumb">
-                                <a class="img-post" href="services-inspection.html">
-                                    <img src="images/services/1.jpg" alt="image">
-                                </a>
-                            </div><!-- /.thumb-->
-                            <div class="desc-img">
-                                <h4 class="title">VEHICLE INSPECTION</h4>
-                                <div class="content">A Anycar Inspection is a comprehensive Vehicle Inspection advising the current state of the vehicle. It is a great way to receive independent advice…
-                                </div>
-                                <a class="button white">Offer Details</a>
-                            </div><!-- /.desc-img -->
-                        </div><!-- /.images-single -->
+                        <?php $serv=DB::table('services')->orderBy(DB::raw('RAND()'))->take(2)->get()?>
+                        @foreach($serv as $ser)
 
                         <div class="images-single object">
-                            <div class="thumb">
-                                <a class="img-post" href="services-diagnostic.html">
-                                    <img src="images/services/2.jpg" alt="image">
-                                </a>
-                            </div><!-- /.thumb-->
+
                             <div class="desc-img">
-                                <h4 class="title">DIAGNOSTIC SERVICES</h4>
+                                <h4 class="title">{{$ser->serviceName}}</h4>
+                                <div class="content">{{$ser->serviceDiscription}}</div>
 
-                                <div class="content">We always use the most advanced diagnostic equipment with the most up to date software to make sure that even the most sophisticated car can be….
-
-                                </div>
-                                <a class="button white">Offer Details</a>
                             </div><!-- /.desc-img -->
-                        </div><!-- /.images-single -->
-
-                        <div class="object">
+                       </div><!-- /.images-single -->
+                       @endforeach
+                       <div class="object">
                             <form  id="contactform" class="flat-contact-form style1" method="post" action="{{route('question')}}">
                                 <div class="quick-appoinment">
                                     <div class="row">

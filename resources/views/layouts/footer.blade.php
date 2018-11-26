@@ -12,16 +12,16 @@
                             <div class="two-columns row">
                                 <div class="object">
                                     <i class="fa fa-map-marker"></i>
-                                    <strong>66 Nicholson St Buffalo New York US</strong> <br>
+                                    <strong>No 7/A/4 Vidya Road Awissawella</strong> <br>
                                     <i class="fa fa-phone"></i>
-                                    <strong>Tel:</strong> 011 3 456 789
+                                    <strong>Tel:</strong> 036-2235617
                                 </div>
                                 <div class="object ft-phone">
                                     <i class="fa fa-tablet"></i>
                                     <strong>Mobile: </strong>0718 888 666<br>
                                     <i class="fa fa-envelope"></i>
                                     <strong>E-mail:</strong>
-                                    <a href="#">support@linethemes.com</a>
+                                    <a href="#">akashsahan963@gmail.com</a>
                                 </div>
                             </div><!-- /.row -->
                         </div>
