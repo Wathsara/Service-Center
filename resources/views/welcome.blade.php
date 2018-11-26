@@ -213,53 +213,28 @@
                 </div><!-- /.row -->
                 <div class="row">
                     <div class="col-md-12">
+                        <?php $empl=DB::table('employees')->orderBy(DB::raw('RAND()'))->take(3)->get()?>
+
                         <div class="member-carousel">
                             <!--one Team member card starts -->
+                            @foreach($empl as $em)
                             <div class="col-md-4">
                                 <article class="member entry object">
                                 <div class="member-image">
-                                    <a href="#"><img src="images/member/t1.png" alt="t6"></a>
-                                    <div class="member-links">
-                                        <div class="social-links">
-                                            <a href="#">
-                                                <i class="fa fa-vimeo-square"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-foursquare"></i>
-                                            </a>
-                                        </div>
+                                    <img src="{{asset('employeePic/'.$em->id)}}" style="height: 200px" alt="t6">
 
-                                        <div class="more-link">
-                                            <a href="#">View Profile</a>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="member-detail">
-                                    <h3 class="member-name">CHANDANSS SAHOO</h3>
-                                    <p class="member-subtitle">Co Founder & CEO</p>
-                                    <ul class="member-meta">
-                                        <li class="member-phone">
-                                            <span>Tel:</span>666-888-999
-                                        </li>
+                                    <h3 class="member-name">{{$em->employeeName}}</h3>
+                                    <p class="member-subtitle">{{$em->employeeType}}</p>
 
-                                        <li class="member-email">
-                                            <a href="#">
-                                                themesflat.com
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </article>
                             </div><!--one Team member card ends -->
-
+                            @endforeach
                         </div><!-- /.main-content-wrap -->
+
                     </div><!-- /.col-md-12 -->
                 </div><!-- /.row -->
             </div><!-- /.container -->

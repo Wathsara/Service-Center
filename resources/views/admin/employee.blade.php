@@ -142,7 +142,7 @@
                                             <th>Type</th>
                                             <th>Mobile</th>
                                             {{--<th>Address</th>--}}
-                                            {{--<th>Email</th>--}}
+                                            <th>Email</th>
                                             {{--<th>Salary</th>--}}
                                             {{--<th>Discription</th>--}}
                                             <th class="text-right">Created on</th>
@@ -159,7 +159,7 @@
                                                 <td>{{$employee->employeeType}}</td>
                                                 <td>{{$employee->employeeContactNo}}</td>
                                                 {{--<td>{{$employee->employeeAddress}}</td>--}}
-                                                {{--<td>{{$employee->employeeEmail}}</td>--}}
+                                                <td>{{$employee->employeeEmail}}</td>
                                                 {{--<td>LKR {{$employee->employeeSalary}}</td>--}}
                                                 {{--<td>{{$employee->employeeDescription}}</td>--}}
 
@@ -179,6 +179,9 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
+                                                                        <div style="text-align: center">
+                                                                            <img src="{{asset("employeePic/".$employee->id)}}" style="width: 150px;height: 150px" class="img-circle">
+                                                                        </div>
 
                                                                         <div class="form-group">
                                                                             <label for="employeeName"style="font-size: 18px;">Name</label><br>
@@ -215,7 +218,7 @@
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
                                                                         </div>
-                                                                  
+
                                                                 </div>
 
                                                             </div>
@@ -237,7 +240,7 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form action="{{route('updateEmployee')}}" method="post">
+                                                                    <form action="{{route('updateEmployee')}}" method="post" enctype="multipart/form-data">
                                                                         {{csrf_field()}}
                                                                         <div class="form-group">
                                                                             <label for="employeeName"style="font-size: 18px;">Name</label><br>
@@ -288,6 +291,10 @@
                                                                         <div class="form-group">
                                                                             <label for="employeeSalary" style="font-size: 18px;">Salary <b>LKR</b></label><br>
                                                                             <input type="number" step="0.01" class="form-control" id="employeeSalary" name="employeeSalary" placeholder="25000.00" value="{{$employee->employeeSalary}}" required>
+                                                                        </div><br>
+                                                                        <div>
+                                                                            <label for="employeeDescription" style="font-size: 18px;float: left">Employee Image</label><br>
+                                                                            <input type="file" accept="image/*" class="form-control"  name="employeeImage" placeholder="Upload an Image" required>
                                                                         </div><br>
                                                                         <input type="hidden" value="{{$employee->id}}" name="eid">
                                                                         <div class="form-group">
