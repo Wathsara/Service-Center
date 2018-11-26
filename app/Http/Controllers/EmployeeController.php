@@ -27,6 +27,13 @@ class EmployeeController extends Controller{
         $emp->employeeDescription = $request->employeeDescription;
         $emp->created_at=Carbon::now();
         $emp->save();
+
+        $employee=DB::table('employees')->orderBy('id','DESC')->first();
+
+        $request->file('employeeImage')->move(
+            base_path() . '/public/employeePic/',$employee->id
+        );
+
         Session::put('employeeadd',"Employee Added Succesfully");
         return back();
     }

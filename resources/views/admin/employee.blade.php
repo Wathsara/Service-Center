@@ -65,7 +65,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{route('addEmployee')}}" method="post">
+                                        <form action="{{route('addEmployee')}}" method="post" enctype="multipart/form-data">
                                             {{csrf_field()}}
                                             <div class="form-group">
                                                 <label for="employeeName"style="font-size: 18px;">Name</label><br>
@@ -73,32 +73,46 @@
                                             </div><br>
                                             <div class="form-group">
                                                 <label for="employeeGender"style="font-size: 18px;">Gender</label><br>
-                                                <input type="text" class="form-control" id="employeeGender" name="employeeGender" placeholder="Ex: Male of Female" required>
-                                            </div><br>
+                                                <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <input type="radio" name="employeeGender" value="male" checked> Male
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="radio" name="employeeGender" value="female"> Female
+                                                </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="employeeType"style="font-size: 18px;">Type</label><br>
                                                 <input type="text" class="form-control" id="employeeName" name="employeeType" placeholder="Ex: Engineer" required>
                                             </div><br>
                                             <div class="form-group">
-                                                <label for="employeeContactNo"style="font-size: 18px;">Mobile</label><br>
+                                                <label for="employeeContactNo" style="font-size: 18px;">Mobile</label><br>
                                                 <input type="number" class="form-control" id="employeeContactNo" name="employeeContactNo" placeholder="Ex: 0712341234" required>
                                             </div><br>
                                             <div class="form-group">
-                                                <label for="employeeAddress"style="font-size: 18px;">Address</label><br>
+                                                <label for="employeeAddress" style="font-size: 18px;">Address</label><br>
                                                 <input type="text" class="form-control" id="employeeAddress" name="employeeAddress" placeholder="Ex: Avissawella" required>
                                             </div><br>
                                             <div class="form-group">
-                                                <label for="employeeEmail"style="font-size: 18px;">Email</label><br>
+                                                <label for="employeeEmail" style="font-size: 18px;">Email</label><br>
                                                 <input type="text" class="form-control" id="employeeEmail" name="employeeEmail" placeholder="Ex: Jhonwilson@gmail.com" required>
                                             </div><br>
                                             <div class="form-group">
                                                 <label for="employeeSalary" style="font-size: 18px;">Salary<b>LKR</b></label><br>
                                                 <input type="number" class="form-control" id="employeeSalary" name="employeeSalary" placeholder="25000.00" required>
                                             </div><br>
+                                            <div>
+                                                <label for="employeeDescription" style="font-size: 18px;">Employee Image</label><br>
+                                                <input type="file" accept="image/*" class="form-control"  name="employeeImage" placeholder="Upload an Image" required>
+                                            </div><br>
                                             <div class="form-group">
                                                 <label for="employeeDescription" style="font-size: 18px;">Description</label><br>
                                                 <textarea type="text" class="form-control" id="employeeDescription" name="employeeDescription" placeholder="Short description about the Employee" required></textarea>
                                             </div><br>
+
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-success">Add New</button>
@@ -165,44 +179,43 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form action="{{route('employee')}}">
-                                                                        {{csrf_field()}}
+
                                                                         <div class="form-group">
                                                                             <label for="employeeName"style="font-size: 18px;">Name</label><br>
-                                                                            <input type="text" class="form-control"   value="{{$employee->employeeName}}" required>
+                                                                            <input type="text" class="form-control"   value="{{$employee->employeeName}}" readonly>
                                                                         </div><br>
                                                                         <div class="form-group">
-                                                                            <label for="employeeGender"style="font-size: 18px;">Gender</label><br>
-                                                                            <input type="text" class="form-control"   value="{{$employee->employeeGender}}" required>
+                                                                            <label for="employeeGender"style="font-size: 18px;float: left">Gender</label><br>
+                                                                            <input type="text" class="form-control"   value="{{$employee->employeeGender}}" readonly>
                                                                         </div><br>
                                                                         <div class="form-group">
                                                                             <label for="employeeType"style="font-size: 18px;">Type</label><br>
-                                                                            <input type="text" class="form-control"   value="{{$employee->employeeType}}" required>
+                                                                            <input type="text" class="form-control"   value="{{$employee->employeeType}}" readonly>
                                                                         </div><br>
                                                                         <div class="form-group">
                                                                             <label for="employeeContactNo"style="font-size: 18px;">Mobile</label><br>
-                                                                            <input type="number" class="form-control"   value="{{$employee->employeeContactNo}}" required>
+                                                                            <input type="number" class="form-control"   value="{{$employee->employeeContactNo}}" readonly>
                                                                         </div><br>
                                                                         <div class="form-group">
                                                                             <label for="employeeAddress"style="font-size: 18px;">Address</label><br>
-                                                                            <input type="text" class="form-control"   value="{{$employee->employeeAddress}}" required>
+                                                                            <input type="text" class="form-control"   value="{{$employee->employeeAddress}}" readonly>
                                                                         </div><br>
                                                                         <div class="form-group">
                                                                             <label for="employeeEmail"style="font-size: 18px;">Email</label><br>
-                                                                            <input type="text" class="form-control"   value="{{$employee->employeeEmail}}" required>
+                                                                            <input type="text" class="form-control"   value="{{$employee->employeeEmail}}" readonly>
                                                                         </div><br>
                                                                         <div class="form-group">
                                                                             <label for="employeeSalary" style="font-size: 18px;">Salary <b>LKR</b></label><br>
-                                                                            <input type="number" step="0.01" class="form-control"   value="{{$employee->employeeSalary}}" required>
+                                                                            <input type="number" step="0.01" class="form-control"   value="{{$employee->employeeSalary}}" readonly>
                                                                         </div><br>
                                                                         <div class="form-group">
                                                                             <label for="employeeDescription" style="font-size: 18px;">Description</label><br>
-                                                                            <textarea type="text" class="form-control"   required>{{$employee->employeeDescription}}</textarea>
+                                                                            <textarea type="text" class="form-control"   readonly>{{$employee->employeeDescription}}</textarea>
                                                                         </div><br>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-dismiss="modal">Close</button>
                                                                         </div>
-                                                                    </form>
+                                                                  
                                                                 </div>
 
                                                             </div>
@@ -231,11 +244,33 @@
                                                                             <input type="text" class="form-control" id="employeeName" name="employeeName" placeholder="Ex: Jhon Wilson" value="{{$employee->employeeName}}" required>
                                                                         </div><br>
                                                                         <div class="form-group">
-                                                                            <label for="employeeGender"style="font-size: 18px;">Gender</label><br>
-                                                                            <input type="text" class="form-control" id="employeeGender" name="employeeGender" placeholder="Ex: Male of Female" value="{{$employee->employeeGender}}" required>
+                                                                            <label for="employeeGender" style="font-size: 18px;float:  left">Gender</label><br>
+                                                                            <div class="row">
+                                                                                @if($employee->employeeGender=="male")
+
+                                                                                    <div class="col-md-4">
+                                                                                        <input type="radio" name="employeeGender" value="male" checked> Male
+
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <input type="radio" name="employeeGender" value="female"> Female
+                                                                                    </div>
+                                                                                @else
+
+                                                                                    <div class="col-md-4">
+                                                                                        <input type="radio" name="employeeGender" value="male" > Male
+
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <input type="radio" name="employeeGender" value="female" checked> Female
+                                                                                    </div>
+                                                                                @endif
+                                                                            </div>
+
+
                                                                         </div><br>
                                                                         <div class="form-group">
-                                                                            <label for="employeeType"style="font-size: 18px;">Type</label><br>
+                                                                            <label for="employeeType" style="font-size: 18px;">Type</label><br>
                                                                             <input type="text" class="form-control" id="employeeName" name="employeeType" placeholder="Ex: Engineer" value="{{$employee->employeeType}}" required>
                                                                         </div><br>
                                                                         <div class="form-group">
