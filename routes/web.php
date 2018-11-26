@@ -132,3 +132,26 @@ Route::get('paymentStatus', [
     'as' => 'paymentStatus'
 ])->middleware('verified');
 
+//admin Employee view
+Route::get('employee',[
+    'uses' => 'EmployeeController@employee',
+    'as' => 'employee'
+]);
+
+//add Employee route
+Route::post('addEmployee',[
+    'uses' => 'EmployeeController@addEmployee',
+    'as' => 'addEmployee'
+]);
+
+//update Employee route
+Route::post('updateEmployee',[
+    'uses' => 'EmployeeController@updateEmployee',
+    'as' => 'updateEmployee'
+]);
+
+//delete Employee route
+Route::post('deleteEmployee',[
+    'uses' => 'EmployeeController@deleteEmployee',
+    'as' => 'deleteEmployee'
+]);
