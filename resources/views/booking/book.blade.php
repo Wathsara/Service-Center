@@ -114,9 +114,9 @@
             <section class="services-pricing-table">
                 <div class="container">
                     <div class="row">
-                        <div class="title-section">
-                            <h2 class="title">PRICING TABLE</h2>
-                            <p class="desc-title">Here you can see what we have to offer and what you’ll pay for that</p>
+                        <div class="title-section" style="text-align: center">
+                            <h2 class="title" style="text-align: center">PRICING TABLE</h2>
+                            <p class="desc-title" style="text-align: center">Here you can see what we have to offer and what you’ll pay for that</p>
                         </div>
 
                         <div class="col-md-12">
@@ -125,39 +125,13 @@
                                 <tr class="style1">
                                     <th>Performance</th>
                                     <th>For Car</th>
-                                    <th>For Truck</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>Air Filter (Improves gas mileage &amp; performance)</td>
                                     <td>From $19.99</td>
-                                    <td>From $19.99</td>
-                                </tr>
-                                <tr class="style1">
-                                    <td>Cabin Air Filter (Filter the Air you breathe)</td>
-                                    <td>From $24.99</td>
-                                    <td>From $24.99</td>
-                                </tr>
-                                <tr>
-                                    <td>Wiper Blades (each)</td>
-                                    <td>From $9.99</td>
-                                    <td>From $9.99</td>
-                                </tr>
-                                <tr class="style1">
-                                    <td>Bulb Replacement</td>
-                                    <td>From $11.99</td>
-                                    <td>From $11.99</td>
-                                </tr>
-                                <tr>
-                                    <td>Head Light Replacement</td>
-                                    <td>From $24.99</td>
-                                    <td>From $24.99</td>
-                                </tr>
-                                <tr class="style1">
-                                    <td>Oil System Cleaning Service</td>
-                                    <td>From $11.99</td>
-                                    <td>From $11.99</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -37,6 +38,7 @@
     <script src="{{ asset('js/respond.min.js') }}"></script>
 
 
+
     <!-- Icons -->
     <link href="{{ asset('icon/apple-touch-icon-48-precomposed.png') }}" rel="apple-touch-icon-precomposed" sizes="48x48">
     <link href="{{ asset('icon/apple-touch-icon-32-precomposed.png') }}" rel="apple-touch-icon-precomposed">
@@ -62,10 +64,100 @@
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-face.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    {{--<link href="{{ asset('css/preloader.css') }}" rel="stylesheet">--}}
+
+<style>
+    .preloader {
+        width: 200px;
+        height: 200px;
+    }
+    .preloader,
+    .preloader hr {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .preloader hr {
+        box-sizing: border-box;
+        display: block;
+        border: 2px solid transparent;
+        border-radius: 50%;
+
+        animation: 1s spin linear infinite;
+    }
+    .preloader hr:nth-of-type(1) {
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-top-color: #085820;
+        animation-duration: 2.4s;
+    }
+    .preloader hr:nth-of-type(2) {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-top-color: #138535;
+        animation-duration: 2s;
+    }
+    .preloader hr:nth-of-type(3) {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-top-color: #6BD089;
+        animation-duration: 1.6s;
+    }
+    .preloader hr:nth-of-type(4) {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        border-top-color: #98E0AD;
+        animation-duration: 1.2s;
+    }
+    .preloader hr:nth-of-type(5) {
+        top: 25px;
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+        border-top-color: #C8EFD4;
+        animation-duration: .8s;
+    }
+
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
 </head>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $("#preloaders").fadeOut(5000);
+    });
+</script>
+<section class="loading-overlay" id="preloaders"  style="background: black">
+
+    <div class="preloader">
+        <hr><hr><hr><hr><hr>
+    </div>
+</section>
 <body >
 
 <div id="app">
+
         <div id="site-header">
             <div id="headerbar">
                 <div class="container">

@@ -78,10 +78,10 @@ class PaymentController extends Controller
         } catch (\PayPal\Exception\PayPalConnectionException $ex) {
             if (\Config::get('app.debug')) {
                 \Session::put('error', 'Connection timeout');
-                return redirect()->route('home');
+                return redirect()->route('ServiceList');
             } else {
                 \Session::put('error', 'Some error occur, sorry for inconvenient');
-                return redirect()->route('home');
+                return redirect()->route('ServiceList');
             }
         }
         foreach ($payment->getLinks() as $link) {
@@ -97,7 +97,7 @@ class PaymentController extends Controller
             return Redirect::away($redirect_url);
         }
         Session::put('error', 'Unknown error occurred');
-        return redirect()->route('home');
+        return redirect()->route('ServiceList');
     }
 
 
@@ -115,7 +115,7 @@ class PaymentController extends Controller
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
 
             Session::put('error', 'Payment failed');
-            return redirect()->route('home');
+            return redirect()->route('ServiceList');
 
         }
 
@@ -149,7 +149,7 @@ class PaymentController extends Controller
                 $message->from('akashsahan963@gmail.com','Chathuranga Auto Care Center');
             });
 
-            return redirect()->route('home');
+            return redirect()->route('ServiceList');
         }
 
         Session::put('error', 'Payment failed');
