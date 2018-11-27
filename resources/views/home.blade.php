@@ -51,7 +51,7 @@
                         <div class="column-container">
                             <div class="plan">{{$service->serviceName}}</div>
                             <div class="price">LKR <br>{{$service->serviceFee}}</div>
-                            <div class="description" style="height: 20vh;overflow-y: scroll">{{$service->serviceDiscription}}</div>
+                            <div class="description" style="height: 20vh;overflow-y: scroll;color: black">{{$service->serviceDiscription}}</div>
                             <div class="cta">
                                 <a class="button" data-toggle="collapse" href="#rese{{$service->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">Reserve Now</a>
                                 <div class="collapse" id="rese{{$service->id}}" style="margin-top: 5px;">

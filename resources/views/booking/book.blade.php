@@ -38,7 +38,7 @@
                                         <div class="column-container">
 
                                             <div class="plan">{{$service->serviceName}}</div>
-                                            <div class="description">{{$service->serviceDiscription}}</div>
+                                            <div class="description" style="color: black">{{$service->serviceDiscription}}</div>
                                             <div class="price">LKR {{$service->serviceFee}} <br>{{$date}}</div>
                                             <div class="cta">
                                                 <form method="post" action="{{route('reserve')}}">
@@ -107,35 +107,6 @@
 
                         </div> <!-- /.col-md-12 -->
 
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </section>
-
-            <section class="services-pricing-table">
-                <div class="container">
-                    <div class="row">
-                        <div class="title-section" style="text-align: center">
-                            <h2 class="title" style="text-align: center">PRICING TABLE</h2>
-                            <p class="desc-title" style="text-align: center">Here you can see what we have to offer and what you’ll pay for that</p>
-                        </div>
-
-                        <div class="col-md-12">
-                            <table>
-                                <thead>
-                                <tr class="style1">
-                                    <th>Performance</th>
-                                    <th>For Car</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Air Filter (Improves gas mileage &amp; performance)</td>
-                                    <td>From $19.99</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div><!-- /.row -->
                 </div><!-- /.container -->
             </section>

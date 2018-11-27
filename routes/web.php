@@ -126,6 +126,7 @@ Route::get('payment', [
     'uses' => 'PaymentController@payWithpaypal',
     'as' => 'payment'
 ])->middleware('verified');
+
 // route to get the status of the transaction
 Route::get('paymentStatus', [
     'uses' => 'PaymentController@getStatusReport',
@@ -136,22 +137,22 @@ Route::get('paymentStatus', [
 Route::get('employee',[
     'uses' => 'EmployeeController@employee',
     'as' => 'employee'
-]);
+])->middleware('admin');
 
 //add Employee route
 Route::post('addEmployee',[
     'uses' => 'EmployeeController@addEmployee',
     'as' => 'addEmployee'
-]);
+])->middleware('admin');
 
 //update Employee route
 Route::post('updateEmployee',[
     'uses' => 'EmployeeController@updateEmployee',
     'as' => 'updateEmployee'
-]);
+])->middleware('admin');
 
 //delete Employee route
 Route::post('deleteEmployee',[
     'uses' => 'EmployeeController@deleteEmployee',
     'as' => 'deleteEmployee'
-]);
+])->middleware('admin');
