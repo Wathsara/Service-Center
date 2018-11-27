@@ -35,7 +35,14 @@
                     </div>
                     {{ Session::forget('serviceupdate') }}
                 @endif
-
+                @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Error Please Check Your Details</strong>
+                    </div>
+                @endif
                 @if(Session::has('servicedel'))
                     <div class="alert alert-warning" role="alert">
                         <strong>Service Successfully Deleted</strong>
@@ -107,7 +114,6 @@
                                             <th>Service Name</th>
                                             <th>Service Discription</th>
                                             <th>Service Fee</th>
-                                            <th class="text-right">Created on</th>
                                             <th class="text-right">Actions</th>
                                         </tr>
 
@@ -119,7 +125,6 @@
                                                 <td>{{$service->serviceName}}</td>
                                                 <td>{{$service->serviceDiscription}} </td>
                                                 <td>LKR {{$service->serviceFee}}</td>
-                                                <td class="text-right">{{$service->created_at}}</td>
                                                 <td class="td-actions text-right">
                                                     <button type="button" rel="tooltip" class="btn btn-success btn-link" data-toggle="modal" data-target="#updateService{{$service->id}}">
                                                         <i class="material-icons">edit</i>

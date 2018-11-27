@@ -19,8 +19,8 @@ class ServiceController extends Controller
     public function addService(Request $request){
         $this->validate($request, [
             'serviceName' => 'required|string|max:255',
-            'serviceDiscription' => 'required|string|max:255',
-            'serviceFee' => 'required|string|max:255'
+            'serviceDiscription' => 'required|string|max:1000',
+            'serviceFee' => 'required|string|max:10'
 
         ]);
         $ser = new Service();

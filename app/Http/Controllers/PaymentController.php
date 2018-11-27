@@ -153,7 +153,7 @@ class PaymentController extends Controller
         }
 
         Session::put('error', 'Payment failed');
-        return redirect()->route('home');
+        return redirect()->route('ServiceList');
     }
 
 }
