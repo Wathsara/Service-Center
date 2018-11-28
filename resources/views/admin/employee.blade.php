@@ -301,7 +301,7 @@
                                                                         </div><br>
                                                                         <div>
                                                                             <label for="employeeDescription" style="font-size: 18px;float: left">Employee Image</label><br>
-                                                                            <input type="file" accept="image/*" class="form-control"  name="employeeImage" placeholder="Upload an Image" required>
+                                                                            <input type="file" accept="image/*" class="form-control"  name="employeeImage" placeholder="Upload an Image">
                                                                         </div><br>
                                                                         <input type="hidden" value="{{$employee->id}}" name="eid">
                                                                         <div class="form-group">
