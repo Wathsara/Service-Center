@@ -56,12 +56,12 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- Button trigger modal -->
+                        {{--Button add new Service--}}
                         <button style="float: right" type="button" class="btn btn-success" data-toggle="modal" data-target="#addservice">
                             Add New Service
                         </button>
 
-                        <!-- Modal -->
+                        {{--Add new service modal--}}
                         <div class="modal fade" id="addservice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -105,6 +105,8 @@
                                 </div>
                                 <h4 class="card-title">Service Details</h4>
                             </div>
+
+                            {{--service table view card--}}
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
@@ -126,9 +128,11 @@
                                                 <td>{{$service->serviceDiscription}} </td>
                                                 <td>LKR {{$service->serviceFee}}</td>
                                                 <td class="td-actions text-right">
+                                                    {{--update service button--}}
                                                     <button type="button" rel="tooltip" class="btn btn-success btn-link" data-toggle="modal" data-target="#updateService{{$service->id}}">
                                                         <i class="material-icons">edit</i>
                                                     </button>
+                                                    {{--update service modal--}}
                                                     <div class="modal fade" id="updateService{{$service->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -164,9 +168,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    {{--delete service button--}}
                                                     <button type="button" rel="tooltip" class="btn btn-danger btn-link" data-toggle="modal" data-target="#delService">
                                                         <i class="material-icons">close</i>
                                                     </button>
+                                                    {{--delete service modal--}}
                                                     <div class="modal fade bd-example-modal-sm" tabindex="-1" id="delService" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-sm">
                                                             <div class="modal-content">

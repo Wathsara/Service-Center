@@ -2,14 +2,14 @@
 
 @section('content')
 <div id="site-wrapper">
-    @if(Session::has('success'))
+    @if(Session::has('que'))
         <div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             <strong>Reserved Successfully</strong>
         </div>
-        {{ Session::forget('success') }}
+        {{ Session::forget('que') }}
     @endif
 
 

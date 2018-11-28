@@ -36,10 +36,11 @@ class ServiceController extends Controller
     public function updateService(Request $request){
         $this->validate($request, [
             'serviceName' => 'required|string|max:255',
-            'serviceDiscription' => 'required|string|max:255',
+            'serviceDiscription' => 'required|string|max:1000',
             'serviceFee' => 'required|string|max:255'
 
         ]);
+
         DB::table('services')
             ->where('id', $request->sid)
             ->update([

@@ -35,16 +35,17 @@ Route::get('contactUs',[
     'as' => 'contactUs'
 ]);
 
-// Route to view the questions
-Route::get('customerQuestion',[
-    'uses' => 'QuestionController@customerQuestion',
-    'as' => 'customerQuestion'
-])->middleware('admin');
-
+//Question routes strats
 // Route to ask the questions
 Route::post('question',[
     'uses' => 'QuestionController@question',
     'as' => 'question'
+]);
+
+// Route to view the questions
+Route::get('customerQuestion',[
+    'uses' => 'QuestionController@customerQuestion',
+    'as' => 'customerQuestion'
 ])->middleware('admin');
 
 //route to answer the question
@@ -58,7 +59,7 @@ Route::post('delque',[
     'uses' => 'QuestionController@delque',
     'as' => 'delque'
 ])->middleware('admin');
-
+//question route ends
 
 //admin dashboard view
 Route::get('dashboard',[
@@ -67,11 +68,6 @@ Route::get('dashboard',[
 ])->middleware('admin');
 
 
-//admin Service view
-Route::get('service',[
-    'uses' => 'ServiceController@service',
-    'as' => 'service'
-])->middleware('admin');
 
 //appointment detail view
 Route::get('appointment',[
@@ -89,6 +85,13 @@ Route::post('blockNow',[
 Route::get('checkBooking',[
     'uses' => 'BookingController@checkBooking',
     'as' => 'checkBooking'
+])->middleware('admin');
+
+//Service Routes Strats
+//admin Service view
+Route::get('service',[
+    'uses' => 'ServiceController@service',
+    'as' => 'service'
 ])->middleware('admin');
 
 //add service route
@@ -114,6 +117,8 @@ Route::get('checkAvailability',[
     'uses' => 'BookingController@checkAvailability',
     'as' => 'checkAvailability'
 ])->middleware('verified');
+//Service Routes Ends
+
 
 //route to reserve the day and time
 Route::post('reserve',[

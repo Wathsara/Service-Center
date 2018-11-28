@@ -45,16 +45,23 @@
                     </div>
                     {{ Session::forget('employeedelete') }}
                 @endif
-
+                @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Error Please Check Your Details</strong>
+                    </div>
+                @endif
 
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- Button trigger modal -->
+                        {{--Button new employee--}}
                         <button style="float: right" type="button" class="btn btn-success" data-toggle="modal" data-target="#addemployee">
                             Add New Employee
                         </button>
 
-                        <!-- Modal -->
+                        {{--Add new modal--}}
                         <div class="modal fade" id="addemployee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -98,11 +105,11 @@
                                             </div><br>
                                             <div class="form-group">
                                                 <label for="employeeEmail" style="font-size: 18px;">Email</label><br>
-                                                <input type="text" class="form-control" id="employeeEmail" name="employeeEmail" placeholder="Ex: Jhonwilson@gmail.com" required>
+                                                <input type="email" class="form-control" id="employeeEmail" name="employeeEmail" placeholder="Ex: Jhonwilson@gmail.com" required>
                                             </div><br>
                                             <div class="form-group">
                                                 <label for="employeeSalary" style="font-size: 18px;">Salary<b>LKR</b></label><br>
-                                                <input type="number" class="form-control" id="employeeSalary" name="employeeSalary" placeholder="25000.00" required>
+                                                <input type="number" class="form-control" id="employeeSalary" name="employeeSalary" min="0" placeholder="25000.00" required>
                                             </div><br>
                                             <div>
                                                 <label for="employeeDescription" style="font-size: 18px;">Employee Image</label><br>
