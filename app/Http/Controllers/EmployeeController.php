@@ -72,9 +72,11 @@ class EmployeeController extends Controller{
                     'employeeSalary' => $request->employeeSalary,
                     'employeeDescription' => $request->employeeDescription
                     ]);
-        $request->file('employeeImage')->move(
-            base_path() . '/public/employeePic/',$request->eid
-        );
+        if($request->file('employeeImage')!=null) {
+            $request->file('employeeImage')->move(
+                base_path() . '/public/employeePic/', $request->eid
+            );
+        }
 
             Session::put('employeeupdate',"Employee Update Succesfully");
             return back();
